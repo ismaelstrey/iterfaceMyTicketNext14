@@ -19,6 +19,7 @@ const NavBarItens = () => {
             <div>
                 <span className="cursor-pointer text-white hover:text-[var(--main)]"><FaUserCircle size={40} /></span>
             </div>
+
         </div>
     )
 }

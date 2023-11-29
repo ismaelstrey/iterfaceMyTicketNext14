@@ -1,0 +1,53 @@
+|-- /src
+    |-- /components
+        |-- /common
+            |-- Navbar.tsx
+            |-- Menu.tsx
+            |-- Submenu.tsx
+        |-- /board
+            |-- Board.tsx
+            |-- BoardColumn.tsx
+            |-- Card.tsx
+    |-- /pages
+        |-- /dashboard
+            |-- index.tsx
+        |-- /todo
+            |-- index.tsx
+        |-- /in-progress
+            |-- index.tsx
+        |-- /paused
+            |-- index.tsx
+        |-- /concluded
+            |-- index.tsx
+    |-- /styles
+        |-- global.css
+        |-- board.css
+    |-- /utils
+        |-- /api
+            |-- api.ts
+    |-- /public
+        |-- /images
+        |-- /fonts
+    |-- tsconfig.json
+    |-- next.config.js
+
+
+/components: Contém componentes reutilizáveis.
+
+/common: Componentes compartilhados como Navbar, Menu e Submenu.
+/pages: Páginas da aplicação.
+
+/dashboard: Página principal da aplicação.
+/todo, /in-progress, /paused, /concluded: Páginas específicas para cada coluna do board.
+/styles: Arquivos de estilo da aplicação.
+
+global.css: Estilos globais para a aplicação.
+board.css: Estilos específicos para o board.
+/utils: Utilitários da aplicação.
+
+/api: Arquivos relacionados à comunicação com a API.
+/public: Contém recursos estáticos como imagens e fontes.
+
+tsconfig.json: Configuração TypeScript para o projeto.
+
+next.config.js: Configurações específicas do Next.js.

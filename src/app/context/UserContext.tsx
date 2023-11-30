@@ -1,18 +1,36 @@
-import React, { useEffect, useState } from "react";
-export const UserContext = React.createContext<boolean>(false);
+"use client"
+import React, { createContext, useState, ReactNode } from "react";
 
-function UserProvider(props: { children: React.ReactNode }) {
-    const [user, setUser] = useState<boolean>(false);
-    const handleTogle = () => setUser(!user)
-
-
-    return (
-        <UserContext.Provider value={{ handleTogle, user }}>
-            {props.children}
-        </UserContext.Provider>
-    )
-
-
-
+interface UserContextProps {
+  handleToggle: () => void;
+  user: boolean;
 }
-export default UserProvider
+
+export const UserContext = createContext<UserContextProps | undefined>(
+  undefined
+);
+
+interface UserProviderProps {
+  handleToggle?: () => void;
+  user?: boolean;
+  children?: ReactNode;
+}
+
+function UserProvider({ handleToggle, user, children }: UserProviderProps) {
+  const [currentUser, setCurrentUser] = useState<boolean>(user || false);
+  const toggleUser = () => {
+    console.log("executado",currentUser)
+    setCurrentUser(!currentUser)
+};
+
+  const contextValue: UserContextProps = {
+    handleToggle: handleToggle || toggleUser,
+    user: currentUser,
+  };
+
+  return (
+    <UserContext.Provider value={contextValue}>{children}</UserContext.Provider>
+  );
+}
+
+export default UserProvider;

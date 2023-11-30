@@ -4,14 +4,17 @@ import Menu from '@/app/components/common/menu'
 import Navbar from '@/app/components/common/navbar/Navbar'
 import SubMenu from '@/app/components/common/menu/_subMenu/_submenu'
 import ModalUser from '@/app/components/common/modalUser'
+import UserProvider from '@/app/context/UserContext'
 
 const DashBoard = () => {
     return (
         <DashBoardWrap>
+            <UserProvider >
             <Menu />
             <SubMenu />
             <Navbar />
-            <ModalUser show={true} />
+            <ModalUser />
+            </UserProvider>
         </DashBoardWrap>
     )
 }

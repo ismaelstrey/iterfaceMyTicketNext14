@@ -36,7 +36,7 @@ const NavBarItens = () => {
       </div>
       <div>
         <span
-          onClick={() => handleToggle()}
+          onClick={() => handleToggle && handleToggle()}
           className="cursor-pointer text-white hover:text-[var(--main)]"
         >
           <FaUserCircle size={40} />

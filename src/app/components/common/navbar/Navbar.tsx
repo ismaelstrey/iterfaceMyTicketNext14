@@ -9,5 +9,4 @@ const Navbar = () => {
         </NavbarWrap>
     )
 }
-
 export default Navbar

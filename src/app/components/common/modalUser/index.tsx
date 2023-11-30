@@ -1,12 +1,10 @@
 "use client"
 import { UserContext } from "@/app/context/UserContext"
-import { useContext, useState } from "react"
+import { useContext } from "react"
 
-interface ModalUserProps {
-    show?: boolean
-}
+
 const ModalUser = () => {
-    const {user,handleToggle} = useContext(UserContext)
+    const { user, handleToggle } = useContext(UserContext);
 
 
     return (
@@ -22,7 +20,7 @@ const ModalUser = () => {
                 <input type="password" name="re-senha" className="h-10 min-w-[15rem] rounded-xl border-solid border-2 border-white outline-none bg-sub-menu text-white text-center" />
                 <div className="flex flex-row-reverse gap-4">
                     <button className="h-10 min-w-[15rem] rounded-xl border-solid border-2 mt-20 border-white outline-none bg-sub-menu text-white text-center hover:bg-green-500">Salvar</button>
-                    <button onClick={() => handleToggle()} className="h-10 min-w-[15rem] bg-red-500 hover:bg-black rounded-xl border-solid border-2 mt-20 border-white outline-none text-white text-center">Cancelar</button>
+                    <button onClick={() => handleToggle && handleToggle()} className="h-10 min-w-[15rem] bg-red-500 hover:bg-black rounded-xl border-solid border-2 mt-20 border-white outline-none text-white text-center">Cancelar</button>
 
                 </div>
             </div>

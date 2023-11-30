@@ -10,10 +10,10 @@ const DashBoard = () => {
     return (
         <DashBoardWrap>
             <UserProvider >
-            <Menu />
-            <SubMenu />
-            <Navbar />
-            <ModalUser />
+                <Menu />
+                <SubMenu />
+                <Navbar />
+                <ModalUser />
             </UserProvider>
         </DashBoardWrap>
     )

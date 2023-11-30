@@ -2,29 +2,30 @@
 import React, { createContext, useState, ReactNode } from "react";
 
 interface UserContextProps {
-  handleToggle: () => void;
+  handleToggle?: () => void;
   user: boolean;
 }
 
-export const UserContext = createContext<UserContextProps | undefined>(
-  undefined
-);
+const defaultContextValue: UserContextProps = {
+  user: false, // ou o valor padrão desejado
+};
+
+export const UserContext = createContext<UserContextProps>(defaultContextValue);
 
 interface UserProviderProps {
-  handleToggle?: () => void;
-  user?: boolean;
   children?: ReactNode;
 }
 
-function UserProvider({ handleToggle, user, children }: UserProviderProps) {
-  const [currentUser, setCurrentUser] = useState<boolean>(user || false);
+function UserProvider({ children }: UserProviderProps) {
+  const [currentUser, setCurrentUser] = useState<boolean>(defaultContextValue.user);
+
   const toggleUser = () => {
-    console.log("executado",currentUser)
-    setCurrentUser(!currentUser)
-};
+    console.log("executado", currentUser);
+    setCurrentUser(!currentUser);
+  };
 
   const contextValue: UserContextProps = {
-    handleToggle: handleToggle || toggleUser,
+    handleToggle: toggleUser,
     user: currentUser,
   };
 

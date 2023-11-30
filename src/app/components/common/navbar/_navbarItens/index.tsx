@@ -10,7 +10,7 @@ import { UserContext } from "@/app/context/UserContext";
 const NavBarItens = () => {
   const { user, handleToggle } = useContext(UserContext);
   return (
-    <div className="flex w-full gap-4 justify-around content-center items-center">
+    <div className="flex w-full max-h-20 gap-4 justify-around content-center items-center">
       <div className="flex gap-4 ">
         <span
           className="cursor-pointer text-white hover:text-[var(--main)]"

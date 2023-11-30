@@ -5,7 +5,10 @@ interface DashBoardWrapProps {
 
 const DashBoardWrap = ({ children }: DashBoardWrapProps) => {
     return (
-        <div className='flex w-screen h-screen bg-main'>{children}</div>
+        <div className='bg-main'>
+            <div className='flex w-screen h-full'>{children}</div>
+
+        </div>
     )
 }
 

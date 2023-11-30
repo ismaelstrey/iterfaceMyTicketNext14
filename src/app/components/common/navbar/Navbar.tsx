@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import NavbarWrap from './_navbarWrap'
-import NavBarItens from './_navbarItens'
-
-const Navbar = () => {
+interface navbarProps {
+    children: ReactNode;
+}
+const Navbar = ({ children }: navbarProps) => {
     return (
         <NavbarWrap>
-            <NavBarItens />
+            {children}
         </NavbarWrap>
     )
 }

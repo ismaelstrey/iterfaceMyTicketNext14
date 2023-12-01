@@ -13,38 +13,39 @@ const SubMenu = () => {
                     <span onClick={() => steTogle(!togle)} title={togle ? 'Mostrar filtros' : 'Esconder Filtros'} className={`-mr-9 rounded-full z-20 bg-sub-menu p-0 cursor-pointer ${togle && 'rotate-180'}`}> <IoChevronBackCircleOutline size="2em" fill="black" color="white" /></span>
                 </div>
                 <div className={`flex min-h-[80%] flex-col center justify-center itens-center content-center duration-700 transition-opacity  ${togle && 'hidden'}`}>
-                    <div className='flex h-2/4 flex-col justify-around content-center items-center'>
-                        <span className='flex text-white font-bold border-b-2 border-white border-solid p-4'>Pesquiza avançada</span>
+                <span className='flex text-white font-bold border-b-2 text-center w-full border-white border-solid p-4'>Pesquiza avançada</span>
 
-                        <select name="type" id="type" className='h-8 w-48 outline-none rounded-xl border-solid border-2 border-white bg-sub-menu text-white text-center'>
+                    <div className='flex h-2/4 flex-col justify-around content-center items-center'>
+
+                        <select name="type" id="type" className='h-11 w-48 outline-none rounded-xl border-solid border-2 border-white bg-sub-menu text-white text-center'>
                             <option value="fazer">fazer</option>
                             <option value="feito">feito</option>
                             <option value="pausado">pausado</option>
                             <option value="cancelado">fazer</option>
                             <option value="fazendo">fazer</option>
                         </select>
-                        <select name="type" id="type" className='h-8 w-48 outline-none rounded-xl border-solid border-2 border-white bg-sub-menu text-white text-center'>
+                        <select name="type" id="type" className='h-11 w-48 outline-none rounded-xl border-solid border-2 border-white bg-sub-menu text-white text-center'>
                             <option value="fazer">fazer</option>
                             <option value="feito">feito</option>
                             <option value="pausado">pausado</option>
                             <option value="cancelado">fazer</option>
                             <option value="fazendo">fazer</option>
                         </select>
-                        <select name="type" id="type" className='h-8 w-48 outline-none rounded-xl border-solid border-2 border-white bg-sub-menu text-white text-center'>
+                        <select name="type" id="type" className='h-11 w-48 outline-none rounded-xl border-solid border-2 border-white bg-sub-menu text-white text-center'>
                             <option value="fazer">fazer</option>
                             <option value="feito">feito</option>
                             <option value="pausado">pausado</option>
                             <option value="cancelado">fazer</option>
                             <option value="fazendo">fazer</option>
                         </select>
-                        <select name="type" id="type" className='h-8 w-48 outline-none rounded-xl border-solid border-2 border-white bg-sub-menu text-white text-center'>
+                        <select name="type" id="type" className='h-11 w-48 outline-none rounded-xl border-solid border-2 border-white bg-sub-menu text-white text-center'>
                             <option value="fazer">fazer</option>
                             <option value="feito">feito</option>
                             <option value="pausado">pausado</option>
                             <option value="cancelado">fazer</option>
                             <option value="fazendo">fazer</option>
                         </select>
-                        <select name="type" id="type" className='h-8 w-48 outline-none rounded-xl border-solid border-2 border-white bg-sub-menu text-white text-center'>
+                        <select name="type" id="type" className='h-11 w-48 outline-none rounded-xl border-solid border-2 border-white bg-sub-menu text-white text-center'>
                             <option value="fazer">fazer</option>
                             <option value="feito">feito</option>
                             <option value="pausado">pausado</option>

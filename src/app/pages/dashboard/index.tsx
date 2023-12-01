@@ -5,7 +5,7 @@ import Navbar from '@/app/components/common/navbar/Navbar'
 import SubMenu from '@/app/components/common/menu/_subMenu/_submenu'
 import ModalUser from '@/app/components/common/modalUser'
 import UserProvider from '@/app/context/UserContext'
-import Board from '@/app/components/board/Board'
+import Board from '@/app/components/board/boardMain'
 
 const DashBoard = () => {
     return (

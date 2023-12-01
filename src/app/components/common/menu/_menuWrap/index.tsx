@@ -1,5 +1,4 @@
 import React, { ReactNode } from 'react'
-import SubMenu from '../_subMenu/_submenu';
 import ItensMenu from '../_itensMenu';
 interface MenuWrapProps {
     children: ReactNode;

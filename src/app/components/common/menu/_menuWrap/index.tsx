@@ -1,16 +1,21 @@
-import React, { ReactNode } from 'react'
+'use client'
+import React, { ReactNode, useContext } from 'react';
 import ItensMenu from '../_itensMenu';
+import { NavigateContext } from '@/app/context/NavigateContext';
 interface MenuWrapProps {
     children: ReactNode;
 }
-
 const MenuWrap = ({ children }: MenuWrapProps) => {
-    return (
-        <div className='flex w-20 h-screen bg-menu '>
-            {children}
-            <ItensMenu />
-        </div>
-    )
-}
+    // Desestruturar dentro da função do componente
+    const { navigate } = useContext(NavigateContext);
 
-export default MenuWrap
+
+    return (
+        <div className={`flex h-screen bg-menu ${navigate ? 'w-20' : ''}`}>
+            {children}
+            {navigate && <ItensMenu />}
+        </div>
+    );
+};
+
+export default MenuWrap;

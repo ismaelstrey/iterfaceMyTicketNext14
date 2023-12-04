@@ -7,7 +7,7 @@ interface NavigateContextProps {
 }
 
 const defaultContextValue: NavigateContextProps = {
-  navigate: false, // ou o valor padrão desejado
+  navigate: true, // ou o valor padrão desejado
 };
 
 export const NavigateContext = createContext<NavigateContextProps>(defaultContextValue);

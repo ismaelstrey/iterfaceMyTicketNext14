@@ -24,7 +24,7 @@ function ItensMenu() {
                 <li className='cursor-pointer hover:text-[var(--main)]'><IoMdAnalytics size={size} /></li>
                 <li className='cursor-pointer hover:text-[var(--main)]'><DiAptana size={size} /></li>
                 <hr className='mt-10' />
-                <li className='cursor-pointer hover:text-[var(--main)]'><BiLogOutCircle size={size} /></li>
+                <li className='cursor-pointer text-red-500 hover:text-[var(--main)]'><BiLogOutCircle size={size} /></li>
 
 
 

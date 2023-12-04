@@ -20,7 +20,6 @@ function UserProvider({ children }: UserProviderProps) {
   const [currentUser, setCurrentUser] = useState<boolean>(defaultContextValue.user);
 
   const toggleUser = () => {
-    console.log("executado", currentUser);
     setCurrentUser(!currentUser);
   };
 

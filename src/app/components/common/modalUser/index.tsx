@@ -8,8 +8,8 @@ const ModalUser = () => {
 
 
     return (
-        user && <div className="flex gap-3 flex-col w-screen h-screen fixed justify-center content-center items-center bg-opacity-30 backdrop-blur-sm z-40">
-            <div className="flex relative flex-col gap-4 w-40vw]">
+        user && <div className="flex gap-3 flex-col w-screen h-screen fixed justify-center content-center items-center bg-opacity-30 backdrop-blur-sm z-40 transition-all duration-1000">
+            <div className="flex bg-sub-menu p-20 rounded-lg border-2 border-solid border-white relative flex-col gap-4 w-40vw]">
                 <label htmlFor="name" className="text-white">Nome compreto</label>
                 <input id="name" type="text" className="h-10 min-w-[15rem] rounded-xl border-solid border-2 border-white outline-none bg-sub-menu text-white text-center" />
                 <label htmlFor="email" className="text-white">Email</label>

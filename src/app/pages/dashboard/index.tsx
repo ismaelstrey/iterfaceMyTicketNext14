@@ -6,6 +6,7 @@ import SubMenu from '@/app/components/common/menu/_subMenu/_submenu'
 import ModalUser from '@/app/components/common/modalUser'
 import UserProvider from '@/app/context/UserContext'
 import Board from '@/app/components/board/boardMain'
+import List from '@/app/components/list'
 
 const DashBoard = () => {
     return (
@@ -14,7 +15,8 @@ const DashBoard = () => {
                 <Menu />
                 <SubMenu />
                 <Navbar>
-                    <Board />
+                    {/* <Board /> */}
+                    <List />
                 </Navbar>
                 <ModalUser />
             </UserProvider>

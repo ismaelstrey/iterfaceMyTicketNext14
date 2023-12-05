@@ -8,8 +8,6 @@ interface MenuWrapProps {
 const MenuWrap = ({ children }: MenuWrapProps) => {
     // Desestruturar dentro da função do componente
     const { navigate } = useContext(NavigateContext);
-
-
     return (
         <div className={`flex h-screen bg-menu ${navigate ? 'w-20' : ''}`}>
             {children}
@@ -17,5 +15,4 @@ const MenuWrap = ({ children }: MenuWrapProps) => {
         </div>
     );
 };
-
 export default MenuWrap;

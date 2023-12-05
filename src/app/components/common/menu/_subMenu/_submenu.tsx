@@ -17,7 +17,7 @@ const SubMenu = () => {
                         <IoChevronBackCircleOutline size="2em" /></span>
                 </div>
                 <div className={`flex min-h-[80%] flex-col center justify-center itens-center content-center duration-700 transition-opacity  ${navigate && 'hidden'}`}>
-                    <div className='flex text-white font-bold border-b-2 text-center w-full border-white border-solid p-4'><span className='ml-4'>Pesquisa avançada</span></div>
+                    <div className='flex w-60 text-white font-bold border-b-2 text-center w-full border-white border-solid p-4'><span className='ml-4'>Pesquisa avançada</span></div>
 
                     <div className='flex h-2/4 flex-col justify-around content-center items-center'>
 

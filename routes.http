@@ -1,0 +1,56 @@
+get http://localhost:3000/videos
+
+###
+POST http://localhost:3000/videos
+Content-Type: application/json
+
+{
+    "title":"video 02",
+    "description":"Esse é um video de cultura",
+    "duration":180
+}
+###
+get http://localhost:3000/api/todo
+
+###
+POST http://localhost:3000/api/todo
+Content-Type: application/json
+
+{    
+    "name":"Brincar", 
+    "descricao":"Brincar com a bb",
+    "percentual":90
+}
+###
+POST http://localhost:3000/api
+Content-Type: application/json
+
+{    
+    "name":"Lavar roupa", 
+    "descricao":"Lavar toda roupa suja",
+    "percentual":100,
+    "status": "ABERTO" 
+}
+###
+
+DELETE http://localhost:3000/api/todo/7
+Content-Type: application/json
+
+
+###
+###
+
+PATCH  http://localhost:3000/api/todo/19
+Content-Type: application/json
+
+{    
+    
+    "status": "PAUSADO" 
+}
+
+# ATIVO
+#   DESATIVADO
+#   FAZENDO
+#   PAUSADO
+#   CANCELADO
+#   ABERTO

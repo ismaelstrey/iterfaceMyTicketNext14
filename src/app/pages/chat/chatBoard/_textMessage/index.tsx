@@ -6,7 +6,7 @@ interface TextMessageProps {
 
 function TextMessage({ children }: TextMessageProps) {
     return (
-        <div>{children}</div>
+        <div className='min-h-[80vh]'>{children}</div>
     )
 }
 

@@ -19,7 +19,6 @@ const DashBoard = () => {
                 <SubMenu />
                 <Navbar>
                     {showKanban ? <Board /> : <List />}
-
                 </Navbar>
                 <ModalUser />
             </UserProvider>

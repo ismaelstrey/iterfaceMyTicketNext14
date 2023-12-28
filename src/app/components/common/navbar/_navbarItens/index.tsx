@@ -4,11 +4,14 @@ import { CiViewColumn } from "react-icons/ci";
 import { FaUserCircle } from "react-icons/fa";
 import { IoAddCircleOutline } from "react-icons/io5";
 import { RxDividerVertical } from "react-icons/rx";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { UserContext } from "@/app/context/UserContext";
+import { NavigateContext } from "@/app/context/NavigateContext";
 
 const NavBarItens = () => {
   const { user, handleToggle } = useContext(UserContext);
+  const { handleToggleKanban, showKanban } = useContext(NavigateContext);
+
   return (
     <div className="flex w-full max-h-20 gap-4 justify-around content-center items-center">
       <div className="flex gap-4 ">
@@ -24,7 +27,8 @@ const NavBarItens = () => {
         <span className="cursor-pointer text-white hover:text-[var(--main)]">
           <FaListUl size={40} />
         </span>
-        <span className="cursor-pointer text-white hover:text-[var(--main)]">
+        <span onClick={() => handleToggleKanban && handleToggleKanban()} className={`cursor-pointer  hover:text-[var(--main)] ${showKanban ? 'rotate-90 text-[var(--main)]' : 'text-white'}`}>
+
           <CiViewColumn size={40} />
         </span>
       </div>

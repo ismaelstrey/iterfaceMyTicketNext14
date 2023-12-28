@@ -7,7 +7,7 @@ export function limitarTexto(texto: string, limite = 70): string {
     }
 }
 
-export const colorType = (tipo: string) => {
+export const colorType = (tipo: string): string => {
     switch (tipo) {
         case 'Aberto':
             return 'bg-red-500'

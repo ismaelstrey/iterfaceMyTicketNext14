@@ -11,7 +11,7 @@ const Board = () => {
         <BoardColumn title={l} key={key}>
             {apiTicket.filter((filtra) => filtra.type === l)
                 .map((lista) =>
-                    <Card id={lista.id} type={lista.type} title={lista.title} subTitle={lista.subTitle} description={lista.description} />)}
+                    <Card key={lista.id} id={lista.id} type={lista.type} title={lista.title} subTitle={lista.subTitle} description={lista.description} />)}
         </BoardColumn>)
     return (
         <BoardWrap>

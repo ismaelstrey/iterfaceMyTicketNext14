@@ -15,7 +15,7 @@ interface CardPorps {
 
 const Card = ({ id, title, subTitle, description, type }: CardPorps) => {
     return (
-        <CardWrap>
+        <CardWrap id={id} type={type}>
             <CardTitle id={id} title={title} subTitle={subTitle} type={type} />
             <CardMain description={limitarTexto(description)} />
             <CardFooter />

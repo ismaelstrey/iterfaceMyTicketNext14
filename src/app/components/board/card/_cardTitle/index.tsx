@@ -10,7 +10,7 @@ interface CardTitleProps {
 const CardTitle = ({ id, title, subTitle, type }: CardTitleProps) => {
 
   return (
-    <div className="flex flex-col hover:cursor-pointer bg-slate-900/80 ">
+    <div className="flex flex-col hover:cursor-pointer bg-slate-900/80 " aria-description={type}>
       <div className="flex ml-3 mt-2 justify-between">
         <div className="flex flex-col">
           <span className="font-extrabold text-2xl">{title}</span>

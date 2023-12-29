@@ -25,3 +25,5 @@ export const colorType = (tipo: string): string => {
             return ''
     }
 }
+
+

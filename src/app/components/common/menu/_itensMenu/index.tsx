@@ -14,7 +14,7 @@ const size = 40;
 
 function ItensMenu() {
     return (
-        <div className='flex w-full justify-center items-center content-center '>
+        <div className='flex w-20 justify-center items-center content-center'>
             <ul className='flex flex-col gap-6 text-white'>
                 <li className='cursor-pointer hover:text-[var(--main)]'><IoHome size={size} /></li>
                 <li className='cursor-pointer hover:text-[var(--main)]'><TbArticle size={size} /></li>

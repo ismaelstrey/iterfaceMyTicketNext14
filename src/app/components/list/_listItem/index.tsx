@@ -36,7 +36,7 @@ const ListItem = () => {
 
                         </td>
                         <th scope="row" className="flex items-center px-6 py-4 text-white whitespace-nowrap dark:text-white">
-                            <Image className="w-10 h-10 rounded-full" src="/atendente.jpg" alt="Jese image" />
+                            <Image className="w-10 h-10 rounded-full" src="/atendente.jpg" alt="Jese image" width={200} height={200} />
                             <div className="ps-3">
                                 <div className="text-base font-semibold">Neil Sims</div>
                                 <div className="font-normal text-gray-400">neil.sims@flowbite.com</div>
@@ -62,7 +62,7 @@ const ListItem = () => {
                             </div>
                         </td>
                         <th scope="row" className="flex items-center px-6 py-4 font-medium text-white whitespace-nowrap dark:text-white">
-                            <Image className="w-10 h-10 rounded-full" src="/atendente.jpg" alt="Jese image" />
+                            <Image className="w-10 h-10 rounded-full" src="/atendente.jpg" alt="Jese image" width={200} height={200} />
                             <div className="ps-3">
                                 <div className="text-base font-semibold">Bonnie Green</div>
                                 <div className="font-normal text-gray-400">bonnie@flowbite.com</div>
@@ -88,7 +88,7 @@ const ListItem = () => {
                             </div>
                         </td>
                         <th scope="row" className="flex items-center px-6 py-4 font-medium text-white whitespace-nowrap dark:text-white">
-                            <Image className="w-10 h-10 rounded-full" src="/atendente.jpg" alt="Jese image" />
+                            <Image className="w-10 h-10 rounded-full" src="/atendente.jpg" alt="Jese image" width={200} height={200} />
                             <div className="ps-3">
                                 <div className="text-base font-semibold">Jese Leos</div>
                                 <div className="font-normal text-gray-400">jese@flowbite.com</div>
@@ -114,7 +114,7 @@ const ListItem = () => {
                             </div>
                         </td>
                         <th scope="row" className="flex items-center px-6 py-4 font-medium text-white whitespace-nowrap dark:text-white">
-                            <Image className="w-10 h-10 rounded-full" src="/atendente.jpg" alt="Jese image" />
+                            <Image className="w-10 h-10 rounded-full" src="/atendente.jpg" alt="Jese image" width={200} height={200} />
                             <div className="ps-3">
                                 <div className="text-base font-semibold">Thomas Lean</div>
                                 <div className="font-normal text-gray-400">thomes@flowbite.com</div>
@@ -140,7 +140,7 @@ const ListItem = () => {
                             </div>
                         </td>
                         <th scope="row" className="flex items-center px-6 py-4 font-medium text-white whitespace-nowrap dark:text-white">
-                            <Image className="w-10 h-10 rounded-full" src="/atendente.jpg" alt="Jese image" />
+                            <Image className="w-10 h-10 rounded-full" src="/atendente.jpg" alt="Jese image" width={200} height={200} />
                             <div className="ps-3">
                                 <div className="text-base font-semibold">Leslie Livingston</div>
                                 <div className="font-normal text-gray-400">leslie@flowbite.com</div>

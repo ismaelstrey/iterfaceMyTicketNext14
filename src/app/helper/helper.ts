@@ -25,5 +25,26 @@ export const colorType = (tipo: string): string => {
             return ''
     }
 }
+export const colorPrioridade = (prioridade: string): string => {
+    switch (prioridade) {
+        case 'critico':
+            return 'bg-red-500'
+
+        case 'alto':
+            return 'bg-blue-500'
+
+        case 'medio':
+            return 'bg-yellow-500'
+
+        case 'baixo':
+            return 'bg-green-500'
+
+        case 'planejado':
+            return 'bg-purple-500'
+
+        default:
+            return ''
+    }
+}
 
 

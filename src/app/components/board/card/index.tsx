@@ -11,13 +11,14 @@ interface CardPorps {
     subTitle: string;
     description: string;
     type: string;
+    prioridade?: string;
 }
 
-const Card = ({ id, title, subTitle, description, type }: CardPorps) => {
+const Card = ({ id, title, subTitle, description, type, prioridade }: CardPorps) => {
     return (
-        <CardWrap id={id} type={type}>
-            <CardTitle id={id} title={title} subTitle={subTitle} type={type} />
-            <CardMain description={limitarTexto(description)} />
+        <CardWrap id={id} type={type} prioridade={prioridade}>
+            <CardTitle id={id} title={title} subTitle={subTitle} type={type} prioridade={prioridade} />
+            <CardMain description={limitarTexto(description)} className='hidden' />
             <CardFooter />
         </CardWrap>
     )

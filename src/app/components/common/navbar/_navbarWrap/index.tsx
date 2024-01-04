@@ -6,9 +6,9 @@ interface navbarWrapProps {
 
 const navbarWrap = ({ children }: navbarWrapProps) => {
     return (
-        <div className='flex  w-screen flex-col'>
-            <div className='flex h-20 bg-sub-menu border-solid border-b-2'><NavBarItens /></div>
-            <div>{children} </div>
+        <div className='flex w-full flex-col fixed'>
+            <div className='flex w-full h-20 bg-sub-menu border-solid border-b-2'><NavBarItens /></div>
+            <div>{children}</div>
         </div>
     )
 }

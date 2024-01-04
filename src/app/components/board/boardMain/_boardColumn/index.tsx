@@ -1,4 +1,4 @@
-import React, { ReactNode, useRef } from 'react'
+import React, { ReactNode } from 'react'
 import BoardTitle from './_boardColumnTitle'
 import { drag, drop } from '@/app/helper/dragInDrop';
 interface BoardColumnProps {
@@ -13,7 +13,7 @@ const BoardColumn = ({ title, children }: BoardColumnProps) => {
             onDrop={e => drop(e, title)}
             onDragStart={(event) => drag(event)}
             // aria-colindex={title}
-            className='flex flex-col border-r-2 border-solid border-white min-w-[20rem] h-[90vh] first:border-l-2 '>
+            className='flex flex-col border-r-2 border-solid border-white min-w-[10rem] min-h-[90vh] first:border-l-2 '>
             <BoardTitle title={title}
 
             />

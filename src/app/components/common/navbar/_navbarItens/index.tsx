@@ -4,12 +4,14 @@ import { CiViewColumn } from "react-icons/ci";
 import { FaUserCircle } from "react-icons/fa";
 import { IoAddCircleOutline } from "react-icons/io5";
 import { RxDividerVertical } from "react-icons/rx";
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { UserContext } from "@/app/context/UserContext";
 import { NavigateContext } from "@/app/context/NavigateContext";
+import { TicketContext } from "@/app/context/TicketContext";
 
 const NavBarItens = () => {
   const { user, handleToggle } = useContext(UserContext);
+  const { ticket, handleToggleTicket } = useContext(TicketContext);
   const { handleToggleKanban, showKanban } = useContext(NavigateContext);
 
   return (
@@ -18,6 +20,7 @@ const NavBarItens = () => {
         <span
           className="cursor-pointer text-white hover:text-[var(--main)]"
           title="Novo ticket"
+          onClick={() => handleToggleTicket && handleToggleTicket()}
         >
           <IoAddCircleOutline size={40} />
         </span>
@@ -32,7 +35,7 @@ const NavBarItens = () => {
           <CiViewColumn size={40} />
         </span>
       </div>
-      <div>
+      <div className=" sm:flex hidden">
         <input
           type="text"
           className="h-8 min-w-[15rem] rounded-xl border-solid border-2 border-white outline-none bg-sub-menu text-white text-center"

@@ -9,7 +9,7 @@ const MenuWrap = ({ children }: MenuWrapProps) => {
     // Desestruturar dentro da função do componente
     const { navigate } = useContext(NavigateContext);
     return (
-        <div className={`flex h-screen bg-menu ${navigate ? 'w-20' : ''}`}>
+        <div className={`flex h-screen fixed bg-menu ${navigate ? 'w-20' : ''}`}>
             {children}
             {navigate && <ItensMenu />}
         </div>

@@ -9,6 +9,7 @@ import UserProvider from '@/app/context/UserContext'
 import Board from '@/app/components/board/boardMain'
 import List from '@/app/components/list'
 import { NavigateContext } from '@/app/context/NavigateContext'
+import NovoTicket from '@/app/components/novoTicket'
 
 const DashBoard = () => {
     const { showKanban } = useContext(NavigateContext);
@@ -17,10 +18,14 @@ const DashBoard = () => {
             <UserProvider >
                 <Menu />
                 <SubMenu />
-                <Navbar>
+                <div className='flex flex-col w-full'>
+                    <Navbar>
+                        <span></span>
+                    </Navbar>
                     {showKanban ? <Board /> : <List />}
-                </Navbar>
+                </div>
                 <ModalUser />
+                <NovoTicket />
             </UserProvider>
         </DashBoardWrap>
     )

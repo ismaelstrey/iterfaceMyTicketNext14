@@ -4,7 +4,7 @@ interface BoardWrapProps {
 }
 const BoardWrap = ({ children }: BoardWrapProps) => {
     return (
-        <div className='flex w-full h-full gap-4 content-center items-center justify-center'>
+        <div className='flex flex-col md:flex-col sm:flex-col lg:flex-row w-full h-full gap-4 content-center items-center justify-center'>
             {children}
         </div>
     )

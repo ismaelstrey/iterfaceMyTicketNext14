@@ -77,4 +77,4 @@ export const apiTicket = [
 ]
 
 export const TYPE = ['Aberto', 'Iniciado', 'Pausado', 'Concluido']
-export const TYPE_RPIORIDADE = ['critico', 'alto', 'medio', 'baixo', 'planejado']
+export const TYPE_RPIORIDADE = ['baixo', 'medio', 'alto', 'planejado', 'critico']

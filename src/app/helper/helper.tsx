@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+import { HiTicket } from "react-icons/hi2";
 export function limitarTexto(texto: string, limite = 70): string {
 
     if (texto.length > limite) {
@@ -20,6 +22,24 @@ export const colorType = (tipo: string): string => {
 
         case 'Concluido':
             return 'bg-green-500'
+
+        default:
+            return ''
+    }
+}
+export const IconType = (tipo: string): ReactNode => {
+    switch (tipo) {
+        case 'Aberto':
+            return <HiTicket size={40} color="#ef4444" className='rotate-180' />
+
+        case 'Iniciado':
+            return <HiTicket size={40} className='rotate-180' color="#3b82f6" />
+
+        case 'Pausado':
+            return <HiTicket size={40} className='rotate-180' color="#eab308" />
+
+        case 'Concluido':
+            return <HiTicket size={40} className='rotate-180' color="#22c55e" />
 
         default:
             return ''

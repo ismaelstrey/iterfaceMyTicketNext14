@@ -1,5 +1,6 @@
+
+import { IconType } from '@/app/helper/helper';
 import React from 'react'
-import { IoAddCircleOutline } from 'react-icons/io5';
 interface BoardTitleProps {
     title: string;
 }
@@ -10,7 +11,7 @@ const BoardTitle = ({ title }: BoardTitleProps) => {
             <span
                 className="cursor-pointer hover:text-white text-[var(--main)]"
                 title="Novo ticket">
-                <IoAddCircleOutline size={40} />
+                <span className=''> {IconType(title)}</span>
             </span>
         </div>
     )

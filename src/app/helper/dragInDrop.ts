@@ -1,3 +1,6 @@
+
+
+
 export function drop(event: React.DragEvent<HTMLDivElement>, title: string) {
     event.preventDefault();
 
@@ -5,8 +8,17 @@ export function drop(event: React.DragEvent<HTMLDivElement>, title: string) {
 
 
 }
-export function drag(event: React.DragEvent<HTMLDivElement | any>) {
-    //@ts-ignore
-    console.log({ "id_ticket": event.target.accessKey, "ticket_status_origem": event.target.ariaDescription });
 
+export async function drag(event: React.DragEvent<HTMLDivElement | any>, title: string): Promise<{ id: number; title: string }> {
+    // Usar a propriedade 'dataset' para acessar 'data-*' attributes em elementos HTML
+    const id = parseInt(event.currentTarget.dataset.id, 10);
+
+
+    if (!isNaN(id)) {
+        // Retornar um objeto com as propriedades 'id' e 'title'
+        return { id, title };
+    } else {
+        // Se o 'data-id' não for um número válido, pode lançar um erro ou retornar um valor padrão, dependendo do requisito
+        throw new Error("ID inválido");
+    }
 }

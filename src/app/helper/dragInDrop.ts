@@ -11,7 +11,8 @@ export function drop(event: React.DragEvent<HTMLDivElement>, title: string) {
 
 export async function drag(event: React.DragEvent<HTMLDivElement | any>, title: string): Promise<{ id: number; title: string }> {
     // Usar a propriedade 'dataset' para acessar 'data-*' attributes em elementos HTML
-    const id = parseInt(event.currentTarget.dataset.id, 10);
+    //@ts-ignore
+    const id = parseInt(event.target.accessKey, 10);
 
 
     if (!isNaN(id)) {

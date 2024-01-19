@@ -8,23 +8,22 @@ interface BoardColumnProps {
     children: ReactNode;
     setAlteraStatus?: () => void;
 }
-interface alteraStatusProps {
-    alteraStatus: [];
-    setAlteraStatus?: () => void;
-}
+
 const BoardColumn = ({ title, children }: BoardColumnProps) => {
-    const [alteraStatus, setAlteraStatus] = useState([])
+    const { atualizarTicket } = useContext(TicketContext)
+    const [alteraStatus, setAlteraStatus] = useState('')
+    const [pegaOrigem, setPegaOrigem] = useState('')
     useEffect(() => {
 
     }, [alteraStatus])
-    const { atualizarTicket } = useContext(TicketContext)
 
-    console.log(alteraStatus)
+
+    pegaOrigem || alteraStatus ? console.log(alteraStatus, pegaOrigem) : ''
     return (
         <div id={title} onDragOver={(e) => e.preventDefault()}
-            onDrop={e => drop(e, title)}
+            onDrop={() => setPegaOrigem(title)}
             onDragStart={(event) => {
-                let executa = drag(event, title).then(res => setAlteraStatus(res))
+                drag(event, title).then(res => setAlteraStatus('teste'))
 
             }}
             // onDragStart={(event) => atualizarTicket(drag(event))}

@@ -26,7 +26,7 @@ const Card = ({
   index,
 }: CardPorps) => {
   return (
-    <Draggable key={id} draggableId={id.toString()} index={index}>
+    <Draggable key={id} draggableId={id.toString()} index={index} shouldRespectForcePress>
       {(provided, snapshot) => (
         <div
           {...provided.draggableProps}

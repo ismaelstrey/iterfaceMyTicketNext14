@@ -6,14 +6,21 @@ import { TicketContext } from "@/app/context/TicketContext";
 import { DragDropContext } from "@hello-pangea/dnd";
 
 const Board = () => {
-  const { apiTicket, ticketType } = useContext(TicketContext);
+  const { apiTicket, ticketType, updateTicket } = useContext(TicketContext);
+
+
   function onDragEnd(result: any) {
-    console.log(result)
     if (!result.destination) return;
-    const { source, destination } = result;
-    console.log({ onDragEnd: result });
-    // if (source.droppeableId !== destination.droppeableId) {
-    // }
+    // console.log(result)
+    const { source, destination, draggableId } = result
+    console.log(source, destination, draggableId)
+    const id = draggableId
+    const destino = destination.droppableId
+    console.log(destino)
+    updateTicket(id, destino)
+
+
+
   }
 
   const RenderBoard = () =>

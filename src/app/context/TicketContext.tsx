@@ -16,6 +16,9 @@ interface TicketContextProps {
   ticketType: string[];
   handleToggleTicket?: () => void;
   atualizarTicket?: (id: number, tipo: string) => void;
+  updateTicket?: (id: number, tipo: string) => void;
+  toggleTicket?: () => void;
+  setCurrentapiTicket?: (tiket: ApiticketProps[]) => void;
   ticket: boolean;
 }
 
@@ -43,12 +46,17 @@ function TicketProvider({ children }: TicketProviderProps) {
     setCurrentapiTicket(alterarTipoPorId(currentapiTicket, id, tipo));
   };
 
+
+
   const contextValue: TicketContextProps = {
     handleToggleTicket: toggleTicket,
     atualizarTicket: updateTicket,
     ticket: currentTicket,
     apiTicket: currentapiTicket,
     ticketType: currentTicketType,
+    updateTicket: updateTicket,
+    toggleTicket: toggleTicket,
+    setCurrentapiTicket: setCurrentapiTicket
 
   };
 

@@ -11,16 +11,11 @@ const Board = () => {
 
   function onDragEnd(result: any) {
     if (!result.destination) return;
-    // console.log(result)
+
     const { source, destination, draggableId } = result
-    console.log(source, destination, draggableId)
-    const id = draggableId
-    const destino = destination.droppableId
-    console.log(destino)
-    updateTicket(id, destino)
-
-
-
+    const id: number = draggableId
+    const destino: string = destination.droppableId
+    updateTicket(id, destino, apiTicket)
   }
 
   const RenderBoard = () =>

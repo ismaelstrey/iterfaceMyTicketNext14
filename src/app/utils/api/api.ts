@@ -1,3 +1,4 @@
+import axios from 'axios'
 import Versao from '../../../../package.json'
 export const { version } = Versao
 
@@ -78,3 +79,11 @@ export const apiTicket = [
 
 export const TYPE = ['Aberto', 'Iniciado', 'Pausado', 'Concluido']
 export const TYPE_RPIORIDADE = ['baixo', 'medio', 'alto', 'planejado', 'critico']
+export const tiketApi = async () => {
+    let data = await axios.get(`http://localhost:3001/tiket`, {
+
+    })
+
+
+    return data.data
+}

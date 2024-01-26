@@ -1,7 +1,7 @@
 "use client"
-import React, { createContext, useState, ReactNode } from "react";
-import { TYPE, apiTicket } from '@/app/utils/api/api'
-import { alterarTipoPorId } from "../helper/newObjeto";
+import React, { createContext, useState, ReactNode, useEffect } from "react";
+import { TYPE, apiTicket, tiketApi } from '@/app/utils/api/api'
+import { alterarTipoPorId, atualizarTicket } from "../helper/newObjeto";
 interface ApiticketProps {
   id: number;
   title: string;
@@ -12,7 +12,7 @@ interface ApiticketProps {
 }
 
 interface TicketContextProps {
-  apiTicket: [ApiticketProps] | any[];
+  apiTicket: ApiticketProps[];
   ticketType: string[];
   handleToggleTicket?: () => void;
   atualizarTicket?: (id: number, tipo: string) => void;
@@ -24,7 +24,7 @@ interface TicketContextProps {
 
 const defaultContextValue: TicketContextProps = {
   ticket: false, // ou o valor padrão desejado
-  apiTicket: apiTicket || null,
+  apiTicket: apiTicket,
   ticketType: TYPE
 };
 
@@ -39,11 +39,19 @@ function TicketProvider({ children }: TicketProviderProps) {
   const [currentapiTicket, setCurrentapiTicket] = useState<ApiticketProps[]>(defaultContextValue.apiTicket);
   const [currentTicketType, setcurrentTicketType] = useState(defaultContextValue.ticketType);
 
+  useEffect(() => {
+    tiketApi().then((l) => setCurrentapiTicket(l))
+  }, [])
+  console.log(currentapiTicket)
   const toggleTicket = () => {
     setCurrentTicket(!currentTicket);
   };
-  const updateTicket = (id: number, tipo: string): void => {
-    setCurrentapiTicket(alterarTipoPorId(currentapiTicket, id, tipo));
+  const updateTicket = (id: number, tipo: string, apiTiket: ApiticketProps[]): void => {
+
+    let newArray = () => atualizarTicket(id, tipo, apiTiket)
+
+    newArray()
+    // setCurrentapiTicket(newArray);
   };
 
 
@@ -67,3 +75,5 @@ function TicketProvider({ children }: TicketProviderProps) {
 }
 
 export default TicketProvider;
+
+

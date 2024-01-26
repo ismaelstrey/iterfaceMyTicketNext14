@@ -11,6 +11,7 @@
   "dependencies": {
     "@hello-pangea/dnd": "^16.5.0",
     "@types/react-icons": "^3.0.0",
+    "axios": "^1.6.7",
     "next": "14.0.3",
     "react": "^18",
     "react-dom": "^18",

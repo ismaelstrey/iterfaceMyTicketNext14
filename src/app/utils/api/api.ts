@@ -76,7 +76,14 @@ export const apiTicket = [
         description: 'O cliente estava viajando para a cidade da praia e cabou a gazolina no carro pois o carro gatasva muito'
     }
 ]
-
+interface ApiticketProps {
+    id: number;
+    title: string;
+    prioridade: string;
+    type: string;
+    subTitle: string;
+    description: string;
+}
 export const TYPE = ['Aberto', 'Iniciado', 'Pausado', 'Concluido']
 export const TYPE_RPIORIDADE = ['baixo', 'medio', 'alto', 'planejado', 'critico']
 export const tiketApi = async () => {
@@ -87,3 +94,16 @@ export const tiketApi = async () => {
 
     return data.data
 }
+
+
+export const Atualizar = async (id: number, data: ApiticketProps) => {
+    try {
+        const response = await axios.put(`http://localhost:3001/tiket/${id}`, data);
+        return response.data;
+    } catch (error) {
+        // Trate os erros conforme necessário
+        console.error('Erro ao atualizar o ticket:', error);
+        throw error; // Pode querer relançar o erro para que quem chama possa tratá-lo também
+    }
+};
+

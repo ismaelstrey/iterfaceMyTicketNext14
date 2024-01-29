@@ -12,7 +12,7 @@ const Board = () => {
   function onDragEnd(result: any) {
     if (!result.destination) return;
 
-    const { source, destination, draggableId } = result
+    const { destination, draggableId } = result
     const id: number = draggableId
     const destino: string = destination.droppableId
     updateTicket(id, destino, apiTicket)

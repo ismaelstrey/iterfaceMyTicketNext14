@@ -26,13 +26,18 @@ const Card = ({
   index,
 }: CardPorps) => {
   return (
-    <Draggable key={id} draggableId={id.toString()} index={index} shouldRespectForcePress>
+    <Draggable
+      key={id}
+      draggableId={id.toString()}
+      index={index}
+      shouldRespectForcePress
+    >
       {(provided, snapshot) => (
         <div
           {...provided.draggableProps}
           {...provided.dragHandleProps}
           ref={provided.innerRef}
-          className={`${snapshot.isDragging ? "opacity-50" : ""}`}
+          className={`${snapshot.isDragging ? "opacity-50 bg-black" : ""}`}
         >
           <CardWrap id={id} type={type} prioridade={prioridade}>
             <CardTitle

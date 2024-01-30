@@ -30,14 +30,19 @@ const NavBarItens = () => {
         <span className="cursor-pointer text-white hover:text-[var(--main)]">
           <FaListUl size={40} />
         </span>
-        <span onClick={() => handleToggleKanban && handleToggleKanban()} className={`cursor-pointer  hover:text-[var(--main)] ${showKanban ? 'rotate-90 text-[var(--main)]' : 'text-white'}`}>
-
+        <span
+          onClick={() => handleToggleKanban && handleToggleKanban()}
+          className={`cursor-pointer  hover:text-[var(--main)] ${
+            showKanban ? "rotate-90 text-[var(--main)]" : "text-white"
+          }`}
+        >
           <CiViewColumn size={40} />
         </span>
       </div>
       <div className=" sm:flex hidden">
         <input
           type="text"
+          id="pesquisa"
           className="h-8 min-w-[15rem] rounded-xl border-solid border-2 border-white outline-none bg-sub-menu text-white text-center"
         />
       </div>

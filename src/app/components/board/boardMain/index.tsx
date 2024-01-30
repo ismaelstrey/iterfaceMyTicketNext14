@@ -14,26 +14,28 @@ const Board = () => {
     const { destination, draggableId } = result;
     const id: number = draggableId;
     const tipo: string = destination.droppableId;
-    updateTicket && updateTicket(id, tipo, apiTicket);
+    console.log(tipo);
+    tipo && apiTicket && updateTicket && updateTicket(id, tipo, apiTicket);
   }
 
   const RenderBoard = () =>
     ticketType.map((l, key) => (
-      <BoardColumn title={l} key={key} id={key}>
-        {apiTicket
-          .filter((filtra) => filtra.type === l)
-          .map((lista, index) => (
-            <Card
-              key={lista.id}
-              index={index}
-              id={lista.id}
-              type={lista.type}
-              title={lista.title}
-              subTitle={lista.subTitle}
-              description={lista.description}
-              prioridade={lista.prioridade}
-            />
-          ))}
+      <BoardColumn title={l} key={key}>
+        {apiTicket &&
+          apiTicket
+            .filter((filtra) => filtra.type === l)
+            .map((lista, index) => (
+              <Card
+                key={lista.id}
+                index={index}
+                id={lista.id}
+                type={lista.type}
+                title={lista.title}
+                subTitle={lista.subTitle}
+                description={lista.description}
+                prioridade={lista.prioridade}
+              />
+            ))}
       </BoardColumn>
     ));
   return (

@@ -10,10 +10,9 @@ interface ApiticketProps {
   subTitle: string;
   description: string;
 }
-interface updateProps {}
 
 interface TicketContextProps {
-  apiTicket: ApiticketProps[];
+  apiTicket: ApiticketProps[] | null;
   ticketType: string[];
   ticket: boolean;
   handleToggleTicket?: () => void;
@@ -37,15 +36,17 @@ function TicketProvider({ children }: TicketProviderProps) {
   const [currentTicket, setCurrentTicket] = useState<boolean>(
     defaultContextValue.ticket
   );
-  const [currentapiTicket, setCurrentapiTicket] = useState<ApiticketProps[]>(
-    []
-  );
+
+  const [currentapiTicket, setCurrentapiTicket] = useState<
+    ApiticketProps[] | null
+  >(null);
   const [currentTicketType, setcurrentTicketType] = useState(
     defaultContextValue.ticketType
   );
+  const handleTicketApi = () => tiketApi().then((l) => setCurrentapiTicket(l));
 
   useEffect(() => {
-    tiketApi().then((l) => setCurrentapiTicket(l));
+    handleTicketApi();
   }, []);
 
   const toggleTicket = () => {

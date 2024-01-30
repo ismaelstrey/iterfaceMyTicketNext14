@@ -8,14 +8,13 @@ import { DragDropContext } from "@hello-pangea/dnd";
 const Board = () => {
   const { apiTicket, ticketType, updateTicket } = useContext(TicketContext);
 
-
   function onDragEnd(result: any) {
     if (!result.destination) return;
 
-    const { destination, draggableId } = result
-    const id: number = draggableId
-    const destino: string = destination.droppableId
-    updateTicket(id, destino, apiTicket)
+    const { destination, draggableId } = result;
+    const id: number = draggableId;
+    const tipo: string = destination.droppableId;
+    updateTicket && updateTicket(id, tipo, apiTicket);
   }
 
   const RenderBoard = () =>

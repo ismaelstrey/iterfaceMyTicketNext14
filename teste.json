@@ -3,10 +3,10 @@
     {
       "title": "teste 01",
       "prioridade": "critico",
-      "type": "Aberto",
+      "type": "Iniciado",
       "subTitle": "OI-Internet",
       "description": "O cliente estava viajando para a cidade da praia e cabou a gazolina no carro pois o carro gatasva muito",
-      "id": 1
+      "id": "1"
     },
     {
       "title": "Sem internet",
@@ -14,15 +14,15 @@
       "type": "Iniciado",
       "subTitle": "OI-Internet",
       "description": "O cliente estava viajando para a cidade da praia e cabou a gazolina no carro pois o carro gatasva muito",
-      "id": 2
+      "id": "2"
     },
     {
-      "id": 3,
       "title": "Sem internet",
       "prioridade": "medio",
-      "type": "Pausado",
+      "type": "Iniciado",
       "subTitle": "OI-Internet",
-      "description": "O cliente estava viajando para a cidade da praia e cabou a gazolina no carro pois o carro gatasva muito"
+      "description": "O cliente estava viajando para a cidade da praia e cabou a gazolina no carro pois o carro gatasva muito",
+      "id": "3"
     },
     {
       "title": "Sem internet",
@@ -30,7 +30,7 @@
       "type": "Pausado",
       "subTitle": "OI-Internet",
       "description": "O cliente estava viajando para a cidade da praia e cabou a gazolina no carro pois o carro gatasva muito",
-      "id": 4
+      "id": "4"
     },
     {
       "title": "Sem internet",
@@ -38,7 +38,7 @@
       "type": "Aberto",
       "subTitle": "OI-Internet",
       "description": "O cliente estava viajando para a cidade da praia e cabou a gazolina no carro pois o carro gatasva muito",
-      "id": 5
+      "id": "5"
     },
     {
       "title": "Sem internet",
@@ -46,18 +46,18 @@
       "type": "Pausado",
       "subTitle": "OI-Internet",
       "description": "O cliente estava viajando para a cidade da praia e cabou a gazolina no carro pois o carro gatasva muito",
-      "id": 6
+      "id": "6"
     },
     {
       "title": "Sem internet",
       "prioridade": "planejado",
-      "type": "Concluido",
+      "type": "Pausado",
       "subTitle": "OI-Internet",
       "description": "O cliente estava viajando para a cidade da praia e cabou a gazolina no carro pois o carro gatasva muito",
-      "id": 7
+      "id": "7"
     },
     {
-      "id": 8,
+      "id": "8",
       "title": "Sem internet",
       "prioridade": "planejado",
       "type": "Concluido",
@@ -65,7 +65,7 @@
       "description": "O cliente estava viajando para a cidade da praia e cabou a gazolina no carro pois o carro gatasva muito"
     },
     {
-      "id": 9,
+      "id": "9",
       "title": "Sem internet",
       "prioridade": "planejado",
       "type": "Concluido",

@@ -2,14 +2,17 @@
   "name": "myticket",
   "version": "0.1.0",
   "private": true,
+  "license": "LGPL-2.0",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "api": "json-server teste.json -p 3001 -w",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@hello-pangea/dnd": "^16.5.0",
+    "@tanstack/react-query": "^5.18.0",
     "@types/react-icons": "^3.0.0",
     "axios": "^1.6.7",
     "next": "14.0.3",
@@ -25,6 +28,7 @@
     "envify": "^4.1.0",
     "eslint": "^8",
     "eslint-config-next": "14.0.3",
+    "json-server": "^1.0.0-alpha.23",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
     "terser": "^5.27.0",

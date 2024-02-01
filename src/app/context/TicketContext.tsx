@@ -12,18 +12,14 @@ interface ApiticketProps {
 }
 
 interface TicketContextProps {
-  apiTicket: ApiticketProps[] | null;
-  ticketType: string[];
   ticket: boolean;
   handleToggleTicket?: () => void;
-  updateTicket?: (id: number, tipo: string, apiTiket: ApiticketProps[]) => void;
+
   toggleTicket?: () => void;
 }
 
 const defaultContextValue: TicketContextProps = {
   ticket: false, // ou o valor padrão desejado
-  apiTicket: apiTicket,
-  ticketType: TYPE,
 };
 
 export const TicketContext =
@@ -37,18 +33,6 @@ function TicketProvider({ children }: TicketProviderProps) {
     defaultContextValue.ticket
   );
 
-  const [currentapiTicket, setCurrentapiTicket] = useState<
-    ApiticketProps[] | null
-  >(null);
-  const [currentTicketType, setcurrentTicketType] = useState(
-    defaultContextValue.ticketType
-  );
-  const handleTicketApi = () => tiketApi().then((l) => setCurrentapiTicket(l));
-
-  useEffect(() => {
-    handleTicketApi();
-  }, []);
-
   const toggleTicket = () => {
     setCurrentTicket(!currentTicket);
   };
@@ -56,9 +40,6 @@ function TicketProvider({ children }: TicketProviderProps) {
   const contextValue: TicketContextProps = {
     handleToggleTicket: toggleTicket,
     ticket: currentTicket,
-    apiTicket: currentapiTicket,
-    ticketType: currentTicketType,
-    updateTicket: atualizarTicket,
     toggleTicket: toggleTicket,
   };
 

@@ -86,12 +86,14 @@ export const apiTicket = [
   },
 ];
 interface ApiticketProps {
+  id: number;
   title: string;
   prioridade: string;
   type: string;
   subTitle: string;
   description: string;
 }
+
 export const TYPE = ["Aberto", "Iniciado", "Pausado", "Concluido"];
 export const TYPE_RPIORIDADE = [
   "baixo",
@@ -100,19 +102,29 @@ export const TYPE_RPIORIDADE = [
   "planejado",
   "critico",
 ];
-export const tiketApi = async () => {
+export const tiketApi = async (): Promise<ApiticketProps[]> => {
   let data = await axios.get(`http://localhost:3001/tiket`, {});
 
   return data.data;
 };
 
-export const atualizar = async (id: number, data: ApiticketProps) => {
+export const atualizar = async ({
+  id,
+  title,
+  prioridade,
+  type,
+  subTitle,
+  description,
+}: ApiticketProps): Promise<ApiticketProps[]> => {
   try {
-    const response = await axios.patch(
-      `http://localhost:3001/tiket/${id}`,
-      data
-    );
-    console.log(response.data);
+    const response = await axios.patch(`http://localhost:3001/tiket/${id}`, {
+      title,
+      prioridade,
+      type,
+      subTitle,
+      description,
+    });
+
     return response.data;
   } catch (error) {
     // Trate os erros conforme necessário

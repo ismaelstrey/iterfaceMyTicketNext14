@@ -11,7 +11,7 @@ import { TicketContext } from "@/app/context/TicketContext";
 
 const NavBarItens = () => {
   const { user, handleToggle } = useContext(UserContext);
-  const { ticket, handleToggleTicket } = useContext(TicketContext);
+  const { ticket, toggleTicket } = useContext(TicketContext);
   const { handleToggleKanban, showKanban } = useContext(NavigateContext);
 
   return (
@@ -20,7 +20,7 @@ const NavBarItens = () => {
         <span
           className="cursor-pointer text-white hover:text-[var(--main)]"
           title="Novo ticket"
-          onClick={() => handleToggleTicket && handleToggleTicket()}
+          onClick={() => toggleTicket && toggleTicket()}
         >
           <IoAddCircleOutline size={40} />
         </span>

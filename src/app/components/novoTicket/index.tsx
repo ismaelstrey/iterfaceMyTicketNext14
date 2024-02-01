@@ -5,7 +5,7 @@ import { TYPE_RPIORIDADE } from "@/app/utils/api/api";
 import { useContext } from "react";
 
 const NovoTicket = () => {
-  const { ticket, handleToggleTicket } = useContext(TicketContext);
+  const { ticket, toggleTicket } = useContext(TicketContext);
   const RenderOptions = () =>
     TYPE_RPIORIDADE.map((item, key) => {
       const option = (
@@ -63,7 +63,7 @@ const NovoTicket = () => {
               Salvar
             </button>
             <button
-              onClick={() => handleToggleTicket && handleToggleTicket()}
+              onClick={() => toggleTicket && toggleTicket()}
               className="h-10 min-w-[15rem] bg-red-500 hover:bg-black rounded-xl border-solid border-2 mt-20 border-white outline-none text-white text-center"
             >
               Cancelar

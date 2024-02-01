@@ -1,20 +1,7 @@
-"use client";
-import React, { createContext, useState, ReactNode, useEffect } from "react";
-import { TYPE, apiTicket, tiketApi } from "@/app/utils/api/api";
-import { atualizarTicket } from "../helper/newObjeto";
-interface ApiticketProps {
-  id: number;
-  title: string;
-  prioridade: string;
-  type: string;
-  subTitle: string;
-  description: string;
-}
+import React, { createContext, useState, ReactNode } from "react";
 
 interface TicketContextProps {
   ticket: boolean;
-  handleToggleTicket?: () => void;
-
   toggleTicket?: () => void;
 }
 
@@ -33,14 +20,11 @@ function TicketProvider({ children }: TicketProviderProps) {
     defaultContextValue.ticket
   );
 
-  const toggleTicket = () => {
-    setCurrentTicket(!currentTicket);
-  };
+  const HandleToggleTicket = () => setCurrentTicket(!currentTicket);
 
   const contextValue: TicketContextProps = {
-    handleToggleTicket: toggleTicket,
     ticket: currentTicket,
-    toggleTicket: toggleTicket,
+    toggleTicket: HandleToggleTicket,
   };
 
   return (

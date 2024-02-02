@@ -1,13 +1,14 @@
 get http://localhost:3000/videos
 
 ###
-POST http://localhost:3000/videos
+POST http://localhost:3000/api/ticket
 Content-Type: application/json
 
-{
-    "title":"video 02",
-    "description":"Esse é um video de cultura",
-    "duration":180
+{     
+    "title": "internet lenta",
+    "subTitle": "Internet ficou lenta derrepente",
+    "description": "estava pulando corda e rebentou o cabo",
+    "observacao": "observando"    
 }
 ###
 get http://localhost:3000/api/todo

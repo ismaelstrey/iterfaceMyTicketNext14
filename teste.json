@@ -3,7 +3,7 @@
     {
       "title": "teste 01",
       "prioridade": "critico",
-      "type": "Aberto",
+      "type": "Iniciado",
       "subTitle": "OI-Internet",
       "description": "O cliente estava viajando para a cidade da praia e cabou a gazolina no carro pois o carro gatasva muito",
       "id": "1"
@@ -27,7 +27,7 @@
     {
       "title": "Sem internet",
       "prioridade": "baixo",
-      "type": "Iniciado",
+      "type": "Aberto",
       "subTitle": "OI-Internet",
       "description": "O cliente estava viajando para a cidade da praia e cabou a gazolina no carro pois o carro gatasva muito",
       "id": "4"

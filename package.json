@@ -5,7 +5,7 @@
   "license": "LGPL-2.0",
   "scripts": {
     "dev": "next dev",
-    "build": "next build & run prisma generate",
+    "build": "prisma generate & next build ",
     "api": "json-server teste.json -p 3001 -w",
     "start": "next start",
     "lint": "next lint",

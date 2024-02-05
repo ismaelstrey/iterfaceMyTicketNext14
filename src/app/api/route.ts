@@ -17,8 +17,8 @@ export async function POST(req: Request) {
     console.log("vazio")
     throw new Error(" Campos obrigatórios")
   }
-  console.log(data)
 
-  return NextResponse.json({ data })
+
+  return NextResponse.json(data)
 }
 

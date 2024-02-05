@@ -23,7 +23,7 @@ export const atualizar = async ({
 }: TiketTypes): Promise<TiketTypes[]> => {
   try {
     const response = await axios.patch(
-      `http://localhost:3000/api/ticket${id}`,
+      `http://localhost:3000/api/ticket/${id}`,
       {
         title,
         prioridade,

@@ -33,7 +33,7 @@ const Board = () => {
     const salvo = await atualizar(filtrado);
   }
   const status = mapStatusEnumToValues(Status);
-
+  console.log(status)
   const RenderBoard = () =>
     status.map((l, key) => (
       <BoardColumn title={l} key={key}>

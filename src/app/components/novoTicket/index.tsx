@@ -1,13 +1,14 @@
 "use client";
 import { TicketContext } from "@/app/context/TicketContext";
-import { colorPrioridade } from "@/app/helper/helper";
+import { colorPrioridade, mapPrioridadeEnumToValues } from "@/app/helper/helper";
 import { TYPE_RPIORIDADE } from "@/app/utils/api/api";
 import { useContext } from "react";
 
 const NovoTicket = () => {
   const { ticket, toggleTicket } = useContext(TicketContext);
+  const typePrioridade = mapPrioridadeEnumToValues(TYPE_RPIORIDADE)
   const RenderOptions = () =>
-    TYPE_RPIORIDADE.map((item, key) => {
+    typePrioridade.map((item, key) => {
       const option = (
         <option key={key} className={colorPrioridade(item)} value={item}>
           {item}

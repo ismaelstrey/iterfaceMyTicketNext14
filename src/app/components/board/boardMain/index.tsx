@@ -4,53 +4,47 @@ import BoardColumn from "./_boardColumn";
 import Card from "../card";
 import { DragDropContext } from "@hello-pangea/dnd";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { TYPE, atualizar, tiketApi } from "@/app/utils/api/api";
-import { filtraTiketPorId } from "@/app/helper/helper";
+import { atualizar, tiketApi } from "@/app/utils/api/api";
+import { filtraTiketPorId, mapStatusEnumToValues } from "@/app/helper/helper";
+import { Status, TiketTypes } from "@/app/@types/tiketTypes";
 
 const Board = () => {
-  const { data: tikets } = useQuery({
+  const { data: tikets, isLoading } = useQuery({
     queryKey: ["tikets"],
     queryFn: tiketApi,
   });
 
   const queryClient = useQueryClient();
-  interface filtraTiketPorIdProps {
-    id: number;
-    title: string;
-    prioridade: string;
-    type: string;
-    subTitle: string;
-    description: string;
-  }
 
   const { mutateAsync: atualizarTicketFn } = useMutation({
     mutationFn: atualizar,
   });
 
-  async function onDragEnd(result: any, tikets: filtraTiketPorIdProps[]) {
+  async function onDragEnd(result: any, tikets: TiketTypes[]) {
     if (!result.destination) return;
 
     const { destination, draggableId } = result;
     const id: number = draggableId;
-    const type: string = destination.droppableId;
+    const status: Status = destination.droppableId;
     const filtrado = await filtraTiketPorId(id, tikets);
-
-    filtrado.type = type;
+    console.log(filtrado);
+    filtrado.status = status;
     const cache = await atualizarTicketFn(filtrado);
     const salvo = await atualizar(filtrado);
   }
+  const status = mapStatusEnumToValues(Status);
 
   const RenderBoard = () =>
-    TYPE.map((l, key) => (
+    status.map((l, key) => (
       <BoardColumn title={l} key={key}>
         {tikets
-          ?.filter((filtra) => filtra.type === l)
+          ?.filter((filtra) => filtra.status === l)
           .map((lista, index) => (
             <Card
               key={lista.id}
               index={index}
               id={lista.id}
-              type={lista.type}
+              status={lista.status}
               title={lista.title}
               subTitle={lista.subTitle}
               description={lista.description}

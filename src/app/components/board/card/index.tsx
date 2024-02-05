@@ -5,14 +5,9 @@ import CardMain from "./_cardMain";
 import CardFooter from "./_cardFooter";
 import { limitarTexto } from "@/app/helper/helper";
 import { Draggable } from "@hello-pangea/dnd";
+import { TiketTypes } from "@/app/@types/tiketTypes";
 
-interface CardPorps {
-  id: number;
-  title: string;
-  subTitle: string;
-  description: string;
-  type: string;
-  prioridade?: string;
+interface CardPorps extends TiketTypes {
   index: number;
 }
 
@@ -21,7 +16,7 @@ const Card = ({
   title,
   subTitle,
   description,
-  type,
+  status,
   prioridade,
   index,
 }: CardPorps) => {
@@ -39,13 +34,14 @@ const Card = ({
           ref={provided.innerRef}
           className={`${snapshot.isDragging ? "opacity-50 bg-black" : ""}`}
         >
-          <CardWrap id={id} type={type} prioridade={prioridade}>
+          <CardWrap prioridade={prioridade}>
             <CardTitle
               id={id}
               title={title}
               subTitle={subTitle}
-              type={type}
               prioridade={prioridade}
+              status={status}
+              description={description}
             />
             <CardMain
               description={limitarTexto(description)}

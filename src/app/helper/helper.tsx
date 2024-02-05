@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import { HiTicket } from "react-icons/hi2";
+import { Status, TiketTypes } from "../@types/tiketTypes";
 export function limitarTexto(texto: string, limite = 70): string {
   if (texto.length > limite) {
     return texto.substring(0, limite) + " ..."; // Retorna os primeiros 150 caracteres
@@ -66,15 +67,10 @@ export const colorPrioridade = (prioridade: string): string => {
   }
 };
 
-interface filtraTiketPorIdProps {
-  id: number;
-  title: string;
-  prioridade: string;
-  type: string;
-  subTitle: string;
-  description: string;
+export const filtraTiketPorId = async (id: number, lista: TiketTypes[]) =>
+  console.log(lista);
+// lista.filter((list) => list.id === id)[0];
+
+export function mapStatusEnumToValues(statusEnum: typeof Status): string[] {
+  return Object.values(statusEnum);
 }
-export const filtraTiketPorId = async (
-  id: number,
-  lista: filtraTiketPorIdProps[]
-) => lista.filter((list) => list.id === id)[0];

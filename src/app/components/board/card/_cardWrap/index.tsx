@@ -2,12 +2,10 @@ import { colorPrioridade } from "@/app/helper/helper";
 import React, { ReactNode } from "react";
 interface CardWrapProps {
   children: ReactNode;
-  id: number;
-  type: string;
   prioridade?: string;
 }
 // bg-green-500
-const CardWrap = ({ children, id, type, prioridade }: CardWrapProps) => {
+const CardWrap = ({ children, prioridade }: CardWrapProps) => {
   return (
     <div className="flex m-2 w-80 h-max-[15rem] bg-sub-menu rounded-md md:w-80">
       <div

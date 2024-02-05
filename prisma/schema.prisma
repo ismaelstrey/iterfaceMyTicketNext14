@@ -45,8 +45,6 @@ model Empresa {
   name          String?
   clientes      String?
   tipo          String
-  created_at    DateTime     @default(now())
-  updated_at    DateTime?    @updatedAt
   user          User[]
   tecnico       Tecnico[]
   tiket         Tiket[]
@@ -54,6 +52,8 @@ model Empresa {
   empresa_tipo  EmpresaTipo? @relation(fields: [empresaTipoId], references: [id])
   empresaTipoId Int?
   clienteId     Int?
+  created_at    DateTime     @default(now())
+  updated_at    DateTime?    @updatedAt
 
   @@map("empresas")
 }
@@ -75,22 +75,20 @@ model Tecnico {
 }
 
 model Tiket {
-  id                 Int          @id @default(autoincrement())
+  id                 Int        @id @default(autoincrement())
   title              String
   subTitle           String
   description        String
   problema_informado String?
   observacao         String?
-  created_at         DateTime     @default(now())
-  updated_at         DateTime     @updatedAt
-  status             TiketStatus? @relation(fields: [tiketStatusId], references: [id])
-  empresa            Empresa?     @relation(fields: [empresaId], references: [id])
-  categoria          Categoria?   @relation(fields: [categoriaId], references: [id])
-  tecnico            Tecnico?     @relation(fields: [tecnicoId], references: [id])
-  prioridade         Prioridade?  @relation(fields: [prioridadeId], references: [id])
-  prioridadeId       Int?
+  created_at         DateTime   @default(now())
+  updated_at         DateTime   @updatedAt
+  status             Status     @default(ABERTO)
+  prioridade         Prioridade @default(BAIXA)
+  empresa            Empresa?   @relation(fields: [empresaId], references: [id])
+  categoria          Categoria? @relation(fields: [categoriaId], references: [id])
+  tecnico            Tecnico?   @relation(fields: [tecnicoId], references: [id])
   tecnicoId          Int?
-  tiketStatusId      Int?
   empresaId          Int?
   categoriaId        Int?
 
@@ -117,26 +115,6 @@ model Subcategoria {
   @@map("subcategorias")
 }
 
-model Prioridade {
-  id    Int     @id @default(autoincrement())
-  name  String?
-  color String?
-  icon  String?
-  tiket Tiket[]
-
-  @@map("prioridades")
-}
-
-model TiketStatus {
-  id         Int      @id @default(autoincrement())
-  name       String?
-  created_at DateTime @default(now())
-  updated_at DateTime @updatedAt
-  Tiket      Tiket[]
-
-  @@map("tiket_status")
-}
-
 model TecnicoTipo {
   id      Int       @id @default(autoincrement())
   name    String?
@@ -151,4 +129,20 @@ model EmpresaTipo {
   empresa Empresa[]
 
   @@map("empresa_tipo")
+}
+
+enum Status {
+  ABERTO
+  INICIADO
+  PAUSADO
+  CONCLUIDO
+  CANCELADO
+}
+
+enum Prioridade {
+  ALTA
+  MEDIA
+  BAIXA
+  PLANEJADA
+  CRITICA
 }

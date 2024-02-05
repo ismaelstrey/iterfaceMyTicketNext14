@@ -1,6 +1,4 @@
-get http://localhost:3000/videos
 
-###
 POST http://localhost:3000/api/ticket
 Content-Type: application/json
 
@@ -8,46 +6,33 @@ Content-Type: application/json
     "title": "internet lenta",
     "subTitle": "Internet ficou lenta derrepente",
     "description": "estava pulando corda e rebentou o cabo",
-    "observacao": "observando"    
+    "observacao": "observando",
+    "status": "CONCLUIDO",
+    "prioridade": "ALTA",
+    "tecnicoId": null,
+    "empresaId": null,
+    "categoriaId": null    
 }
 ###
-get http://localhost:3000/api/todo
-
-###
-POST http://localhost:3000/api/todo
+PATCH  http://localhost:3000/api/ticket/3
 Content-Type: application/json
 
-{    
-    "name":"Brincar", 
-    "descricao":"Brincar com a bb",
-    "percentual":90
+{     
+    "title": "internet ruim",
+    "subTitle": "Internet ficou lenta derrepente",
+    "description": "estava pulando corda e rebentou o cabo",
+    "observacao": "observando",
+    "status": "CONCLUIDO",
+    "prioridade": "ALTA",
+    "tecnicoId": null,
+    "empresaId": null,
+    "categoriaId": null    
 }
 ###
-POST http://localhost:3000/api
+GET http://localhost:3000/api/ticket
 Content-Type: application/json
 
-{    
-    "name":"Lavar roupa", 
-    "descricao":"Lavar toda roupa suja",
-    "percentual":100,
-    "status": "ABERTO" 
-}
 ###
-
-DELETE http://localhost:3000/api/todo/7
-Content-Type: application/json
-
-
-###
-###
-
-PATCH  http://localhost:3000/api/todo/19
-Content-Type: application/json
-
-{    
-    
-    "status": "PAUSADO" 
-}
 
 # ATIVO
 #   DESATIVADO

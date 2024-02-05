@@ -1,109 +1,14 @@
 import axios from "axios";
 import Versao from "../../../../package.json";
+import { Prioridade, Status, TiketTypes } from "@/app/@types/tiketTypes";
 export const { version } = Versao;
+// const url = `${process.env.URL}:${process.env.PORT}`;
+const url = `http://localhost:3000/api/ticket`;
 
-export const apiTicket = [
-  {
-    id: 1,
-    title: "Sem internet",
-    prioridade: "critico",
-    type: "Aberto",
-    subTitle: "OI-Internet",
-    description:
-      "O cliente estava viajando para a cidade da praia e cabou a gazolina no carro pois o carro gatasva muito",
-  },
-  {
-    id: 2,
-    title: "Sem internet",
-    prioridade: "alto",
-    type: "Iniciado",
-    subTitle: "OI-Internet",
-    description:
-      "O cliente estava viajando para a cidade da praia e cabou a gazolina no carro pois o carro gatasva muito",
-  },
-  {
-    id: 3,
-    title: "Sem internet",
-    prioridade: "medio",
-    type: "Pausado",
-    subTitle: "OI-Internet",
-    description:
-      "O cliente estava viajando para a cidade da praia e cabou a gazolina no carro pois o carro gatasva muito",
-  },
-  {
-    id: 4,
-    title: "Sem internet",
-    prioridade: "baixo",
-    type: "Concluido",
-    subTitle: "OI-Internet",
-    description:
-      "O cliente estava viajando para a cidade da praia e cabou a gazolina no carro pois o carro gatasva muito",
-  },
-  {
-    id: 5,
-    title: "Sem internet",
-    prioridade: "planejado",
-    type: "Concluido",
-    subTitle: "OI-Internet",
-    description:
-      "O cliente estava viajando para a cidade da praia e cabou a gazolina no carro pois o carro gatasva muito",
-  },
-  {
-    id: 6,
-    title: "Sem internet",
-    prioridade: "planejado",
-    type: "Concluido",
-    subTitle: "OI-Internet",
-    description:
-      "O cliente estava viajando para a cidade da praia e cabou a gazolina no carro pois o carro gatasva muito",
-  },
-  {
-    id: 7,
-    title: "Sem internet",
-    prioridade: "planejado",
-    type: "Concluido",
-    subTitle: "OI-Internet",
-    description:
-      "O cliente estava viajando para a cidade da praia e cabou a gazolina no carro pois o carro gatasva muito",
-  },
-  {
-    id: 8,
-    title: "Sem internet",
-    prioridade: "planejado",
-    type: "Concluido",
-    subTitle: "OI-Internet",
-    description:
-      "O cliente estava viajando para a cidade da praia e cabou a gazolina no carro pois o carro gatasva muito",
-  },
-  {
-    id: 9,
-    title: "Sem internet",
-    prioridade: "planejado",
-    type: "Concluido",
-    subTitle: "OI-Internet",
-    description:
-      "O cliente estava viajando para a cidade da praia e cabou a gazolina no carro pois o carro gatasva muito",
-  },
-];
-interface ApiticketProps {
-  id: number;
-  title: string;
-  prioridade: string;
-  type: string;
-  subTitle: string;
-  description: string;
-}
-
-export const TYPE = ["Aberto", "Iniciado", "Pausado", "Concluido"];
-export const TYPE_RPIORIDADE = [
-  "baixo",
-  "medio",
-  "alto",
-  "planejado",
-  "critico",
-];
-export const tiketApi = async (): Promise<ApiticketProps[]> => {
-  let data = await axios.get(`http://localhost:3001/tiket`, {});
+export const TYPE = [Status];
+export const TYPE_RPIORIDADE = Prioridade;
+export const tiketApi = async (): Promise<TiketTypes[]> => {
+  let data = await axios.get(`http://localhost:3000/api/ticket`, {});
 
   return data.data;
 };
@@ -112,23 +17,55 @@ export const atualizar = async ({
   id,
   title,
   prioridade,
-  type,
+  status,
   subTitle,
   description,
-}: ApiticketProps): Promise<ApiticketProps[]> => {
+}: TiketTypes): Promise<TiketTypes[]> => {
   try {
-    const response = await axios.patch(`http://localhost:3001/tiket/${id}`, {
-      title,
-      prioridade,
-      type,
-      subTitle,
-      description,
-    });
+    const response = await axios.patch(
+      `http://localhost:3000/api/ticket${id}`,
+      {
+        title,
+        prioridade,
+        status,
+        subTitle,
+        description,
+      }
+    );
 
     return response.data;
   } catch (error) {
     // Trate os erros conforme necessário
     console.error("Erro ao atualizar o ticket:", error);
+    throw error; // Pode querer relançar o erro para que quem chama possa tratá-lo também
+  }
+};
+export const novoTicket = async ({
+  title,
+  prioridade,
+  status,
+  subTitle,
+  description,
+  categoriaId,
+  empresaId,
+  tecnicoId,
+}: TiketTypes): Promise<TiketTypes[]> => {
+  try {
+    const response = await axios.post(`http://localhost:3000/api/ticket`, {
+      title,
+      prioridade,
+      status,
+      subTitle,
+      description,
+      categoriaId,
+      empresaId,
+      tecnicoId,
+    });
+
+    return response.data;
+  } catch (error) {
+    // Trate os erros conforme necessário
+    console.error("Erro ao cadastrar o ticket:", error);
     throw error; // Pode querer relançar o erro para que quem chama possa tratá-lo também
   }
 };

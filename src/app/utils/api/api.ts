@@ -8,7 +8,6 @@ export const TYPE = [Status];
 export const TYPE_RPIORIDADE = Prioridade;
 export const tiketApi = async (): Promise<TiketTypes[]> => {
   let data = await axios.get(`/api/ticket`, {});
-
   return data.data;
 };
 

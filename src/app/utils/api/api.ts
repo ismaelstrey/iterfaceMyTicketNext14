@@ -3,11 +3,10 @@ import Versao from "../../../../package.json";
 import { Prioridade, Status, TiketTypes } from "@/app/@types/tiketTypes";
 export const { version } = Versao;
 
-
 export const TYPE = [Status];
 export const TYPE_RPIORIDADE = Prioridade;
 export const tiketApi = async (): Promise<TiketTypes[]> => {
-  let data = await axios.get(`/api/ticket`, {});
+  let data = await axios.get(`http://localhost:3000/api/ticket`, {});
   return data.data;
 };
 
@@ -21,7 +20,7 @@ export const atualizar = async ({
 }: TiketTypes): Promise<TiketTypes[]> => {
   try {
     const response = await axios.patch(
-      `/api/ticket/${id}`,
+      `http://localhost:3000/api/ticket/${id}`,
       {
         title,
         prioridade,
@@ -49,7 +48,7 @@ export const novoTicket = async ({
   tecnicoId,
 }: TiketTypes): Promise<TiketTypes[]> => {
   try {
-    const response = await axios.post(`/api/ticket`, {
+    const response = await axios.post(`http://localhost:3000/api/ticket`, {
       title,
       prioridade,
       status,

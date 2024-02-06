@@ -2,10 +2,15 @@
 import { TicketContext } from "@/app/context/TicketContext";
 import { colorPrioridade, mapPrioridadeEnumToValues } from "@/app/helper/helper";
 import { TYPE_RPIORIDADE } from "@/app/utils/api/api";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 
 const NovoTicket = () => {
   const { ticket, toggleTicket } = useContext(TicketContext);
+  const [title, setTitle] = useState("")
+  const [subTitle, setSubTitle] = useState("")
+  const [description, setDescription] = useState("")
+  const [cliente, setCliente] = useState("")
+  const [prioridade, setPrioridade] = useState("")
   const typePrioridade = mapPrioridadeEnumToValues(TYPE_RPIORIDADE)
   const RenderOptions = () =>
     typePrioridade.map((item, key) => {
@@ -23,16 +28,26 @@ const NovoTicket = () => {
       <div className="flex gap-3 flex-col w-screen h-screen fixed justify-center content-center items-center bg-opacity-30 backdrop-blur-sm z-40 transition-all duration-1000">
         <div className="flex bg-sub-menu p-20 rounded-lg border-2 border-solid border-white relative flex-col gap-4 w-40vw]">
           <span className="text-white text-lg text-center">
-            <h2>Novo Ticket</h2>
+
           </span>
-          <label htmlFor="name" className="text-white">
-            Nome
+          <label htmlFor="title" className="text-white">
+            Title {title}
           </label>
           <input
-            id="nome"
+            id="title"
+            value={(e) => setTitle(e.target.value)}
             type="text"
             className="h-10 min-w-[15rem] rounded-xl border-solid border-2 border-white outline-none bg-sub-menu text-white text-center"
           />
+          <label htmlFor="subtitle" className="text-white">
+            Subtitle
+          </label>
+          <input
+            id="subtitle"
+            type="text"
+            className="h-10 min-w-[15rem] rounded-xl border-solid border-2 border-white outline-none bg-sub-menu text-white text-center"
+          />
+
           <label htmlFor="description" className="text-white">
             Descrição
           </label>
@@ -41,7 +56,8 @@ const NovoTicket = () => {
             rows={4}
             className="min-w-[15rem] rounded-xl border-solid border-2 border-white outline-none bg-sub-menu text-white p-2"
           />
-          <label htmlFor="email" className="text-white">
+
+          <label htmlFor="cliente" className="text-white">
             Cliente
           </label>
           <input

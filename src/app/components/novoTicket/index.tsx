@@ -35,7 +35,8 @@ const NovoTicket = () => {
           </label>
           <input
             id="title"
-            value={(e) => setTitle(e.target.value)}
+            onChange={(e) => setTitle(e.target.value)}
+            value={title}
             type="text"
             className="h-10 min-w-[15rem] rounded-xl border-solid border-2 border-white outline-none bg-sub-menu text-white text-center"
           />

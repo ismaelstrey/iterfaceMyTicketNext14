@@ -71,16 +71,14 @@ export const colorPrioridade = (prioridade: string): string => {
 };
 
 export const filtraTiketPorId = async (id: number, lista: TiketTypes[]): Promise<TiketTypes> => {
-
-
   const data = lista.filter((list) => list.id == id)
-  console.log(data)
   return data[0];
 };
 
 export function mapStatusEnumToValues(statusEnum: typeof Status): string[] {
   return Object.values(statusEnum);
 }
+
 export function mapPrioridadeEnumToValues(statusEnum: typeof Prioridade): string[] {
   return Object.values(statusEnum);
 }

@@ -2,10 +2,10 @@
 import React, { createContext, useState, ReactNode } from "react";
 
 interface NavigateContextProps {
-  handleToggle?: () => void;
   navigate: boolean;
-  handleToggleKanban?: () => void;
   showKanban: boolean;
+  handleToggle?: () => void;
+  handleToggleKanban?: () => void;
 }
 
 const defaultContextValue: NavigateContextProps = {

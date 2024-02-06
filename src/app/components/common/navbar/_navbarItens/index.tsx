@@ -11,7 +11,7 @@ import { TicketContext } from "@/app/context/TicketContext";
 
 const NavBarItens = () => {
   const { user, handleToggle } = useContext(UserContext);
-  const { ticket, toggleTicket } = useContext(TicketContext);
+  const { toggleTicket } = useContext(TicketContext);
   const { handleToggleKanban, showKanban } = useContext(NavigateContext);
 
   return (
@@ -20,9 +20,10 @@ const NavBarItens = () => {
         <span
           className="cursor-pointer text-white hover:text-[var(--main)]"
           title="Novo ticket"
-          onClick={() => toggleTicket && toggleTicket()}
+          onClick={toggleTicket}
         >
           <IoAddCircleOutline size={40} />
+          teste
         </span>
         <span className=" text-white">
           <RxDividerVertical size={40} />
@@ -32,9 +33,8 @@ const NavBarItens = () => {
         </span>
         <span
           onClick={() => handleToggleKanban && handleToggleKanban()}
-          className={`cursor-pointer  hover:text-[var(--main)] ${
-            showKanban ? "rotate-90 text-[var(--main)]" : "text-white"
-          }`}
+          className={`cursor-pointer  hover:text-[var(--main)] ${showKanban ? "rotate-90 text-[var(--main)]" : "text-white"
+            }`}
         >
           <CiViewColumn size={40} />
         </span>

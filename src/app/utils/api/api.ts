@@ -6,7 +6,7 @@ export const { version } = Versao;
 export const TYPE = [Status];
 export const TYPE_RPIORIDADE = Prioridade;
 export const tiketApi = async (): Promise<TiketTypes[]> => {
-  let data = await axios.get(`http://localhost:3000/api/ticket`, {});
+  let data = await axios.get(`/api/ticket`, {});
   return data.data;
 };
 
@@ -20,7 +20,7 @@ export const atualizar = async ({
 }: TiketTypes): Promise<TiketTypes[]> => {
   try {
     const response = await axios.patch(
-      `http://localhost:3000/api/ticket/${id}`,
+      `/api/ticket/${id}`,
       {
         title,
         prioridade,
@@ -48,7 +48,7 @@ export const novoTicket = async ({
   tecnicoId,
 }: TiketTypes): Promise<TiketTypes[]> => {
   try {
-    const response = await axios.post(`http://localhost:3000/api/ticket`, {
+    const response = await axios.post(`/api/ticket`, {
       title,
       prioridade,
       status,

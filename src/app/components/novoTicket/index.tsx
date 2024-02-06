@@ -14,7 +14,6 @@ const NovoTicket = () => {
           {item}
         </option>
       );
-      console.log(colorPrioridade(item));
       return option;
     });
 

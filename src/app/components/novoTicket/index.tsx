@@ -110,6 +110,7 @@ const NovoTicket = () => {
               name="prioridade"
               id="prioridade"
               value={prioridade}
+              //@ts-ignore
               onChange={(e) => setPrioridade(e.target.value)}
               className="h-10 min-w-[15rem] rounded-xl border-solid border-2 border-white outline-none bg-sub-menu text-white text-center"
             >

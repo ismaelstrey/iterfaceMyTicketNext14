@@ -14,17 +14,14 @@ const CardTitle = ({ id, title, subTitle, status, prioridade }: TiketTypes) => {
           <span className="italic text-slate-400">{subTitle}</span>
         </div>
         <div
-          className={`flex h-10 w-10 justify-center content-center items-center rounded-full m-2 border-2 border-dotted font-extrabold ${colorType(
-            status
-          )}`}
+          className={`flex h-10 w-10 justify-center content-center items-center rounded-full m-2 border-2 border-dotted font-extrabold ${status && colorType(status)}`}
         >
           {id}
         </div>
       </div>
       <span
-        className={`flex mt-2 h-1 w-full rounded-r-lg ${
-          prioridade && colorPrioridade(prioridade)
-        }`}
+        className={`flex mt-2 h-1 w-full rounded-r-lg ${prioridade && colorPrioridade(prioridade)
+          }`}
       ></span>
     </div>
   );

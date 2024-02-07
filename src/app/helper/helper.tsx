@@ -42,7 +42,7 @@ export const IconType = (tipo: string): ReactNode => {
       return <HiTicket size={40} className="rotate-180" color="#22c55e" />;
 
     case "CANCELADO":
-      return <HiTicket size={40} className="rotate-180" color="#22c55e" />;
+      return <HiTicket size={40} className="rotate-180" color="tomato" />;
 
     default:
       return "";
@@ -70,17 +70,20 @@ export const colorPrioridade = (prioridade: string): string => {
   }
 };
 
-export const filtraTiketPorId = async (id: number, lista: TiketTypes[]): Promise<TiketTypes> => {
+export const filtraTiketPorId = async (
+  id: number,
+  lista: TiketTypes[]
+): Promise<TiketTypes> => {
+  const data = lista.filter((list) => list.id == id);
 
-
-  const data = lista.filter((list) => list.id == id)
-  console.log(data)
   return data[0];
 };
 
 export function mapStatusEnumToValues(statusEnum: typeof Status): string[] {
   return Object.values(statusEnum);
 }
-export function mapPrioridadeEnumToValues(statusEnum: typeof Prioridade): string[] {
+export function mapPrioridadeEnumToValues(
+  statusEnum: typeof Prioridade
+): string[] {
   return Object.values(statusEnum);
 }

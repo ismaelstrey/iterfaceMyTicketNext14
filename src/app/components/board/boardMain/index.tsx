@@ -16,7 +16,11 @@ const Board = () => {
 
   const queryClient = useQueryClient();
 
-  const { mutateAsync: atualizarTicketFn } = useMutation({
+  const {
+    mutateAsync: atualizarTicketFn,
+    isSuccess,
+    submittedAt,
+  } = useMutation({
     mutationFn: atualizar,
   });
 
@@ -27,13 +31,14 @@ const Board = () => {
     const id: number = draggableId;
     const status: Status = destination.droppableId;
     const filtrado = await filtraTiketPorId(id, tikets);
-    console.log(filtrado);
+
     filtrado.status = status;
     const cache = await atualizarTicketFn(filtrado);
     const salvo = await atualizar(filtrado);
   }
   const status = mapStatusEnumToValues(Status);
-  console.log(status)
+  status.pop();
+
   const RenderBoard = () =>
     status.map((l, key) => (
       <BoardColumn title={l} key={key}>

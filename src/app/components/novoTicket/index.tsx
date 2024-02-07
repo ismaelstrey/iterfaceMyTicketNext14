@@ -24,11 +24,11 @@ const NovoTicket = () => {
     try {
 
       novoTicket(
-
         {
           title,
           prioridade,
           subTitle,
+          //@ts-ignore
           empresaId,
           description
         }

@@ -7,7 +7,7 @@ export interface TiketTypes {
   observacao?: string;
   created_at?: Date;
   updated_at?: Date;
-  status: Status;
+  status?: Status;
   prioridade?: Prioridade;
   empresa?: number | null;
   categoria?: number | null;

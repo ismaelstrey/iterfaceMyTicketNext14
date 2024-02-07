@@ -11,16 +11,16 @@ export function limitarTexto(texto: string, limite = 70): string {
 
 export const colorType = (tipo: string): string => {
   switch (tipo) {
-    case "Aberto":
+    case "ABERTO":
       return "bg-red-500";
 
-    case "Iniciado":
+    case "INICIADO":
       return "bg-blue-500";
 
-    case "Pausado":
+    case "PAUSADO":
       return "bg-yellow-500";
 
-    case "Concluido":
+    case "CONCLUIDO":
       return "bg-green-500";
 
     default:
@@ -74,7 +74,7 @@ export const filtraTiketPorId = async (id: number, lista: TiketTypes[]): Promise
 
 
   const data = lista.filter((list) => list.id == id)
-  console.log(data)
+
   return data[0];
 };
 

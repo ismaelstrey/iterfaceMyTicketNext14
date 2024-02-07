@@ -29,11 +29,11 @@ const Board = () => {
     const filtrado = await filtraTiketPorId(id, tikets);
     console.log(filtrado);
     filtrado.status = status;
-    const cache = await atualizarTicketFn(filtrado);
-    const salvo = await atualizar(filtrado);
+    await atualizarTicketFn(filtrado);
+    await atualizar(filtrado);
   }
   const status = mapStatusEnumToValues(Status);
-  console.log(status)
+  status.pop()
   const RenderBoard = () =>
     status.map((l, key) => (
       <BoardColumn title={l} key={key}>

@@ -44,6 +44,16 @@ export const novoTicket = async ({
   empresaId,
   tecnicoId,
 }: TiketTypes): Promise<TiketTypes[]> => {
+  console.log({
+    title,
+    prioridade,
+    status,
+    subTitle,
+    description,
+    categoriaId,
+    empresaId,
+    tecnicoId,
+  })
   try {
     const response = await axios.post(`/api/ticket`, {
       title,
@@ -53,7 +63,7 @@ export const novoTicket = async ({
       description,
       categoriaId,
       empresaId,
-      tecnicoId,
+      tecnicoId
     });
 
     return response.data;

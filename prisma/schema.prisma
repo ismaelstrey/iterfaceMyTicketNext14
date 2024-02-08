@@ -38,22 +38,31 @@ model Cliente {
 }
 
 model Empresa {
-  id            Int          @id @default(autoincrement())
-  razao_social  String?
-  nome_fantasia String?
-  ie            String?
-  name          String?
-  clientes      String?
-  tipo          String
-  user          User[]
-  tecnico       Tecnico[]
-  tiket         Tiket[]
-  cliente       Cliente?     @relation(fields: [clienteId], references: [id])
-  empresa_tipo  EmpresaTipo? @relation(fields: [empresaTipoId], references: [id])
-  empresaTipoId Int?
-  clienteId     Int?
-  created_at    DateTime     @default(now())
-  updated_at    DateTime?    @updatedAt
+  id                    Int          @id @default(autoincrement()) // ID da empresa (autoincrementado)
+  nome                  String // Nome da empresa
+  cnpj                  String // CNPJ da empresa
+  endereco              String // Endereço da empresa
+  cidade                String // Cidade da empresa
+  estado                String // Estado da empresa
+  cep                   String // CEP da empresa
+  telefone              String? // Telefone da empresa (opcional)
+  email                 String? // Email da empresa (opcional)
+  dataFundacao          DateTime? // Data de fundação da empresa (opcional)
+  tipoEmpresa           String? // Tipo de empresa (opcional)
+  ramoAtividade         String? // Ramo de atividade da empresa (opcional)
+  responsavelLegal      String? // Responsável legal da empresa (opcional)
+  capitalSocial         Float? // Capital social da empresa (opcional)
+  situacaoTributaria    String? // Situação tributária da empresa (opcional)
+  informacoesAdicionais String? // Informações adicionais sobre a empresa (opcional)
+  user                  User[]
+  tecnico               Tecnico[]
+  tiket                 Tiket[]
+  cliente               Cliente?     @relation(fields: [clienteId], references: [id])
+  empresa_tipo          EmpresaTipo? @relation(fields: [empresaTipoId], references: [id])
+  empresaTipoId         Int?
+  clienteId             Int?
+  created_at            DateTime     @default(now())
+  updated_at            DateTime?    @updatedAt
 
   @@map("empresas")
 }

@@ -7,12 +7,12 @@ const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'SpeedTicket',
-  description: 'SpeedPro'
+  description: 'SpeedPro',
+  creator: 'Ismael Strey Pereira',
+
 }
 interface LayoutProps {
   children: ReactNode
-  types: ReactNode
-  params?: any
 }
 
 export default function RootLayout({ children }: LayoutProps) {

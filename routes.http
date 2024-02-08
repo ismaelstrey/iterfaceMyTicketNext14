@@ -8,7 +8,7 @@ Content-Type: application/json
     "description": "estava pulando corda e rebentou o cabo",
     "observacao": "observando",
     "status": "CONCLUIDO",
-    "prioridade": "ALTA",
+    "prioridade": "CRITICA",
     "tecnicoId": null,
     "empresaId": null,
     "categoriaId": null    

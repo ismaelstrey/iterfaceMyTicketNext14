@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  # Serviço Node.js
+  node:
+    container_name: node_app
+    image: node:latest
+    ports:
+      - "3000:3000"  # Mapeamento da porta do host para a porta do contêiner
+    volumes:
+      - .:/app  # Mapeamento do diretório de trabalho do host para o diretório de trabalho do contêiner
+    working_dir: /app  # Define o diretório de trabalho dentro do contêiner
+    command: npm start  # Comando para iniciar o servidor Node.js
+    depends_on:
+      - postgres  # Dependência do serviço PostgreSQL
+      - redis  # Dependência do serviço Redis
+    env_file:
+      - .env  # Define o arquivo .env para carregar as variáveis de ambiente
+
+  # Serviço PostgreSQL
+  postgres:
+    container_name: postgres_db
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB} | postgres
+      POSTGRES_USER: ${POSTGRES_USER} | postgres
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}| postgres
+    ports:
+      - "5432:5432"  # Mapeamento da porta do host para a porta do contêiner
+    volumes:
+      - postgres_data:/var/lib/postgresql/data  # Volume para persistir os dados do PostgreSQL
+
+  # Serviço Redis
+  redis:
+    container_name: redis_db
+    image: redis:latest
+    ports:
+      - "${REDIS_PORT}:6379"  # Mapeamento da porta do host para a porta do contêiner
+    environment:
+      REDIS_PASSWORD: ${REDIS_PASSWORD}
+    volumes:
+      - redis_data:/data  # Volume para persistir os dados do Redis
+
+  # Serviço MongoDB
+  mongodb:
+    container_name: mongodb
+    image: mongo:latest
+    ports:
+      - "27017:27017"  # Mapeamento da porta do host para a porta do contêiner
+    volumes:
+      - mongodb_data:/data/db  # Volume para persistir os dados do MongoDB
+
+volumes:
+  postgres_data:
+  redis_data:
+  mongodb_data:

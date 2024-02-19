@@ -5,7 +5,6 @@ import Menu from "@/components/common/menu";
 import Navbar from "@/components/common/navbar/Navbar";
 import SubMenu from "@/components/common/menu/_subMenu/_submenu";
 import ModalUser from "@/components/common/modalUser";
-import UserProvider from "@/context/UserContext";
 import Board from "@/components/board/boardMain";
 import List from "@/components/list";
 import { NavigateContext } from "@/context/NavigateContext";
@@ -18,18 +17,16 @@ const DashBoard = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <DashBoardWrap>
-        <UserProvider>
-          <Menu />
-          <SubMenu />
-          <div className="flex flex-col w-full">
-            <Navbar>
-              <span></span>
-            </Navbar>
-            {showKanban ? <Board /> : <List />}
-          </div>
-          <ModalUser />
-          <NovoTicket />
-        </UserProvider>
+        <Menu />
+        <SubMenu />
+        <div className="flex flex-col w-full">
+          <Navbar>
+            <span></span>
+          </Navbar>
+          {showKanban ? <Board /> : <List />}
+        </div>
+        <ModalUser />
+        <NovoTicket />
       </DashBoardWrap>
     </QueryClientProvider>
   );

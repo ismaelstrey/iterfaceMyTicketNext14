@@ -1,12 +1,17 @@
 import axios from "axios";
 import Versao from "../../../package.json";
 import { Prioridade, Status, TiketTypes } from "@/@types/tiketTypes";
+import { EmpresaType } from "@/@types/empresaTypes";
 export const { version } = Versao;
 
 export const TYPE = [Status];
 export const TYPE_RPIORIDADE = Prioridade;
 export const tiketApi = async (): Promise<TiketTypes[]> => {
   let data = await axios.get(`/api/ticket`, {});
+  return data.data;
+};
+export const empresaApi = async (): Promise<EmpresaType[]> => {
+  let data = await axios.get(`/api/empresa`, {});
   return data.data;
 };
 

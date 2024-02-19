@@ -1,25 +1,17 @@
 "use client";
-import { EmpresaType } from "@/@types/empresaTypes";
 import { TicketContext } from "@/context/TicketContext";
 import { colorPrioridade, mapPrioridadeEnumToValues } from "@/helper/helper";
-import { TYPE_RPIORIDADE, empresaApi, novoTicket } from "@/utils/api/api";
-import { FormEvent, useContext, useEffect, useState } from "react";
+import { TYPE_RPIORIDADE, novoTicket } from "@/utils/api/api";
+import { FormEvent, useContext, useState } from "react";
 
-const NovoTicket = () => {
+const NovoCliente = () => {
   const { ticket, toggleTicket } = useContext(TicketContext);
   const [title, setTitle] = useState("")
   const [subTitle, setSubTitle] = useState("")
   const [description, setDescription] = useState("")
-  const [empresaId, setEmpresaId] = useState(null)
-  const [empresa, setEmpresa] = useState([])
+  const [empresaId, setEmpresaId] = useState("")
   const [prioridade, setPrioridade] = useState(TYPE_RPIORIDADE.BAIXA)
   const typePrioridade = mapPrioridadeEnumToValues(TYPE_RPIORIDADE)
-
-  useEffect(() => {
-    empresaApi().then(data => setEmpresa(data))
-  })
-
-
   const handleForm = (e: FormEvent<HTMLFormElement>): void => {
     e.preventDefault()
     console.log({
@@ -48,21 +40,6 @@ const NovoTicket = () => {
 
 
   }
-  const filterEmpresa = (empresa: EmpresaType[], filtro: number) => {
-    const dataFiltro = empresa.filter(filtrar => filtrar.id == filtro)
-    console.log(dataFiltro)
-  }
-  const RenderOptionsCliente = () => empresa.map((item, key) => {
-    console.log(item)
-    const option = (
-      <option key={key} value={item.id}>
-        {item.nome}
-      </option>
-    );
-
-    return option;
-  }
-  );
 
 
   const RenderOptions = () =>
@@ -119,16 +96,13 @@ const NovoTicket = () => {
             <label htmlFor="cliente" className="text-white">
               Cliente
             </label>
-            <select
-              name="cliente"
+            <input
+              type="text"
               id="cliente"
-              value={empresaId && filterEmpresa(empresa, empresaId)}
-              //@ts-ignore
               onChange={(e) => setEmpresaId(e.target.value)}
+              value={empresaId}
               className="h-10 min-w-[15rem] rounded-xl border-solid border-2 border-white outline-none bg-sub-menu text-white text-center"
-            >
-              <RenderOptionsCliente />
-            </select>
+            />
             <label htmlFor="prioridade" className="text-white">
               Prioridade: {prioridade}
             </label>
@@ -161,4 +135,4 @@ const NovoTicket = () => {
   );
 };
 
-export default NovoTicket;
+export default NovoCliente;

@@ -8,7 +8,7 @@ import ModalUser from "@/components/common/modalUser";
 import Board from "@/components/board/boardMain";
 import List from "@/components/list";
 import { NavigateContext } from "@/context/NavigateContext";
-import NovoTicket from "@/components/novoTicket";
+import { NovoTicket } from "@/components/novoTicket/NovoTicket";
 import { queryClient } from "@/lib/react-query";
 import { QueryClientProvider } from "@tanstack/react-query";
 

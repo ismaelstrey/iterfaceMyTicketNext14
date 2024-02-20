@@ -1,7 +1,7 @@
 import axios from "axios";
 import Versao from "../../../package.json";
 import { Prioridade, Status, TiketTypes } from "@/@types/tiketTypes";
-import { EmpresaType } from "@/@types/empresaTypes";
+import { empresaType } from "@/@types/empresaTypes";
 export const { version } = Versao;
 
 export const TYPE = [Status];
@@ -10,7 +10,7 @@ export const tiketApi = async (): Promise<TiketTypes[]> => {
   let data = await axios.get(`/api/ticket`, {});
   return data.data;
 };
-export const empresaApi = async (): Promise<EmpresaType[]> => {
+export const empresaApi = async (): Promise<empresaType[]> => {
   let data = await axios.get(`/api/empresa`, {});
   return data.data;
 };
@@ -40,6 +40,7 @@ export const atualizar = async ({
   }
 };
 export const novoTicket = async ({
+
   title,
   prioridade,
   status,
@@ -49,7 +50,9 @@ export const novoTicket = async ({
   empresaId,
   tecnicoId,
 }: TiketTypes): Promise<TiketTypes[]> => {
+  empresaId = Number(empresaId)
   console.log({
+
     title,
     prioridade,
     status,

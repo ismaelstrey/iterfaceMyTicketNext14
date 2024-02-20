@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import { HiTicket } from "react-icons/hi2";
 import { Prioridade, Status, TiketTypes } from "@/@types/tiketTypes";
+import { empresaType } from "@/@types/empresaTypes";
 
 export function limitarTexto(texto: string, limite = 70): string {
   if (texto.length > limite) {
@@ -85,3 +86,10 @@ export function mapStatusEnumToValues(statusEnum: typeof Status): string[] {
 export function mapPrioridadeEnumToValues(statusEnum: typeof Prioridade): string[] {
   return Object.values(statusEnum);
 }
+
+export const filterEmpresa = (empresa: empresaType[], filtro: number): string => {
+  const empresaFilter = () => empresa.filter((empresa) => empresa.id === filtro);
+  //@ts-ignore
+  const { nome } = empresaFilter()
+  return nome;
+};

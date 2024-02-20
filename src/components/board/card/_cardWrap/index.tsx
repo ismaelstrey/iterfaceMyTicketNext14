@@ -6,7 +6,7 @@ interface CardWrapProps {
 }
 // bg-green-500
 const CardWrap = ({ children, prioridade }: CardWrapProps) => {
-  console.log(prioridade && colorPrioridade(prioridade))
+
   return (
     <div className="flex m-2 w-80 h-max-[15rem] bg-sub-menu rounded-md md:w-80">
       <div
